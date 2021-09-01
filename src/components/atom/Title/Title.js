@@ -1,8 +1,8 @@
 function Title({ titulo, extraclass }) {
     return (
-        <h2 className={`font-bold tm:text-31 md:text-55 leading-title ${extraclass}`}>
+        <h1 className={`font-bold tm:text-31 md:text-55 leading-title ${extraclass}`}>
             {titulo}
-        </h2>
+        </h1>
     )
 }
 
