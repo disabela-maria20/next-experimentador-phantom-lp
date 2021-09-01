@@ -23,6 +23,11 @@
     aspect-ratio: 16 / 9;
 }
 
+.grid-col-50-100 {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+}
+
 @media (max-width: 768px) {
     .h-header {
         height: calc(100vh - 79px);
