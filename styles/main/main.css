@@ -1,0 +1,30 @@
+.bg-header {
+    background-image: url('/img/Phantom-Header.jpg');
+}
+
+.bg-introduction {
+    background-image: url('/img/phantom-section-voice.jpg');
+}
+
+.bg-know-how {
+    background-image: url('/img/know-how-bg.jpg');
+}
+
+.bg-finalizado {
+    background-image: url('/img/phantom-end-section.jpg');
+}
+
+
+.h-header {
+    height: calc(100vh - 95px);
+}
+
+.react-player {
+    aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 768px) {
+    .h-header {
+        height: calc(100vh - 79px);
+    }
+}

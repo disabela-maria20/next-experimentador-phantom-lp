@@ -1,0 +1,21 @@
+/* ./styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;600;700&family=Rampart+One&display=swap');
+@import './main/main.css';
+
+/*@layer components {
+  .errorText {
+    @apply md:text-13 tm:text-10 text-red font-bold;
+  }
+
+  .inputStyle {
+    @apply bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition;
+  }
+
+  .inputStyleError {
+    @apply bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition;
+  }
+}*/
