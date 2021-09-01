@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import React from 'react';
+import axios from 'axios';
 
 const cpfMask = value => {
     return value
@@ -38,7 +39,32 @@ function Cadastro() {
         })
     }
 
-    const onSubmit = (data) => alert(JSON.stringify(data));
+    const onSubmit = (data) => 
+    axios.post('http://api.experimentador.com.br/api/v1/orders', {
+        user_name: data.nome,
+        email: data.email,
+        password: '',
+        phone: data.telefone,
+        cep: data.cep,
+        house_number: data.numero,
+        street_name: data.endereco, 
+        complement: data.complemento,
+        city: data.cidade,
+        state: data.estado,
+        district: data.bairro,
+        privacy_policy_authorization: data.autorizo,
+    }, {
+        headers: {
+            "Api-key": "6SqCqv9Dkm8kNp0XKCVryKG2a2fsjztU",
+            "Access-Control-Allow-Origin": "*"
+        }
+    })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 
    return (
     <section className="mx-auto tm:max-w-xs sm:max-w-sm md:max-w-3xl my-15">

@@ -1,4 +1,3 @@
-import Paragraph from "../../atom/Paragraph/Paragraph"
 import Title from "../../atom/Title/Title"
 import ContainerParagraph from "../../organism/ContainerParagraph/ContainerParagraph"
 import HeaderGeral from "../../organism/HeaderGeral/HeaderGeral"
