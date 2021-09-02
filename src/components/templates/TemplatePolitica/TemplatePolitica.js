@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Title from "../../atom/Title/Title"
 import ContainerParagraph from "../../organism/ContainerParagraph/ContainerParagraph"
 import HeaderGeral from "../../organism/HeaderGeral/HeaderGeral"
@@ -11,7 +12,7 @@ function TemplatePolitica() {
             <Title titulo="Política de Privacidade" extraclass="text-white text-center" />
         </HeaderGeral>
         <ContainerParagraph>
-            <p className={pStyle}><strong>A AVELLAR MEDIA CONSULTORIA, PUBLICIDADE E MARKETING LTDA.(“Adventures”)</strong> preocupa-se com a sua privacidade e quer que vocêesteja familiarizado com a forma como coletamos, utilizamos e divulgamos informações,   respeitando   todas   as   diretrizes   descritas   na   legislação brasileira, especificamente a Lei Geral de Proteção de Dados (“LGPD”). </p>
+            <p className={pStyle}><strong>A AVELLAR MEDIA CONSULTORIA, PUBLICIDADE E MARKETING LTDA.("Adventures")</strong> preocupa-se com a sua privacidade e quer que vocêesteja familiarizado com a forma como coletamos, utilizamos e divulgamos informações,   respeitando   todas   as   diretrizes   descritas   na   legislação brasileira, especificamente a Lei Geral de Proteção de Dados (“LGPD”). </p>
             <p className={pStyle}>Esta Política de Privacidade descreve as nossas práticas no âmbito das informações que nós recolhemos ou os nossos prestadores de serviços recolhem através do website ou da aplicação (doravante designados por "Serviço") operado e controlado por nós, a partir do qual está de acordo aesta Política de Privacidade.  Ao disponibilizar-nos informações pessoais ou vão utilizar o Serviço, você confirma que leu e compreendeu esta Política de Privacidade</p>
             <h3 className="text-black md:text-26 tm:text-18 font-bold py-38">1. Coleta de Informações</h3>
             <p className={pStyle}>Podemos pedir-lhe que submeta seus dados pessoais para poder beneficiar-lhe de determinadas funcionalidades do aplicativo, tais como: envio das amostras; envio de newsletter e/ou informativos por e-mail ou correios; sugestões/indicadores; processamento e envio de pedidos/amostras grátis; entre outros. Podemos também pedir dados pessoais para participar de uma atividade específica (tais como sorteios ou outras promoções), relativa ao aplicativo.</p>
@@ -48,7 +49,7 @@ function TemplatePolitica() {
             <p className={pStyle}>Forneceremos Serviços personalizados mediante o seu consentimento ou porque temos um interesse legítimo.</p>
             <p className={pStyle}>Também divulgamos informações coletadas através do Serviço:</p>
             <ul className="md:text-18 tm:text-15 text-black pb-18 list-disc">
-                <li>para nossas outras verticais de negócios, as quais podem ser acessadas em <a href="https://adventures.inc" target="_blank" className="hover:underline text-bold">https://www.adventures.inc</a>;</li>
+                <li>para nossas outras verticais de negócios, as quais podem ser acessadas em <Link href="https://adventures.inc"><a  target="_blank" className="hover:underline text-bold" rel="noreferrer">https://www.adventures.inc</a></Link>;</li>
                 <li>para nossos parceiros externos com os quais atuamos para a execução conjunta deste serviço;</li>
                 <li>para nossos prestadores de serviços externos que prestam serviços, tais como alojamento e moderação de website, alojamento de aplicativo móvel, análise de dados, processamento de pagamentos, atendimento de pedidos, fornecimento de infraestrutura, serviços de TI, atendimento ao cliente, serviços de entrega de e-mail e mala direta, auditorias e outros serviços, a fim de lhes permitir prestar os serviços; e</li>
                 <li>conforme permitido por lei, para terceiros na eventualidade de uma reorganização, fusão, venda, joint venture, cessão, transferência ou outra alienação da totalidade ou parte de nossa empresa, ativos ou ações (incluindo no âmbito de qualquer processo de insolvência ou procedimentos similares).</li>
@@ -69,7 +70,7 @@ function TemplatePolitica() {
             <p className={pStyle}>A lista acima não é taxativa, mas sim exemplificativo. Os dados pessoais poderão ser armazenados por outros motivos, e por maior tempo, baseando sempre na legislação.</p>
             <h3 className="text-black md:text-26 tm:text-18 font-bold py-38 uppercase">Contate-nos</h3>
             <p className={pStyle}>A Avellar Media Consultoria Publicidade e Marketing LTDA. (Adventures) está situada em Rua Rua Hélios Seelinger, n° 155 - loj. A, RIo de Janeiro/RJ, CEP 22.640-040, e é a empresa responsável pela coleta, utilização e divulgação de informações pessoais ao sob esta Política de Privacidade.</p>
-            <p className={pStyle}>Se tiver dúvidas acerca desta Política de Privacidade, contacte-nos através do seguinte contato: <a href="mailto:juridico@adventures.inc" className="hover:undeline text-bold">juridico@adventures.inc</a>.</p>
+            <p className={pStyle}>Se tiver dúvidas acerca desta Política de Privacidade, contacte-nos através do seguinte contato: <Link href="mailto:juridico@adventures.inc"><a className="hover:undeline text-bold">juridico@adventures.inc</a></Link>.</p>
             <h3 className="text-black md:text-26 tm:text-18 font-bold py-38 uppercase">RECLAMAÇÃO JUNTO DE UMA ENTIDADE REGULADORA
 </h3>
             <p className={pStyle}>Você tem o direito de apresentar uma reclamação junto à autoridade competente. Por favor, entre em contato conosco através do contato acima, se você precisar das informações de contato dessas autoridades.</p>
