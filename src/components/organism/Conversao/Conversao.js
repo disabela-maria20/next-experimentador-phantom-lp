@@ -1,10 +1,27 @@
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 const Conversao = () => {
     const { register, handleSubmit, formState: { errors }, setValue} = useForm({
         mode: 'onChange'
     });
+
+    const testeGet = () => axios.get('https://api.experimentador.com.br/api/v1/orders', {
+        headers: {
+            "Api-key": "6SqCqv9Dkm8kNp0XKCVryKG2a2fsjztU",
+            "Access-Control-Allow-Origin": "https://api.experimentador.com.br",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, HEAD, OPTIONS",
+            "Access-Control-Allow-Credentials": "true"
+        }
+    })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
 
     const onSubmit = (data) => alert(JSON.stringify(data));
 
