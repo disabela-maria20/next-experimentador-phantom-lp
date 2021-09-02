@@ -41,12 +41,13 @@ function Cadastro() {
     }
 
     const onSubmit = (data) => 
-    axios.post('https://api.experimentador.com.br/api/v1/orders', {
+    axios.post('http://api.experimentador.com.br/api/v1/orders', {
         user_name: data.nome,
         email: data.email,
         password: '',
         phone: data.telefone,
         cep: data.cep,
+        cpf: data.cpf,
         house_number: data.numero,
         street_name: data.endereco, 
         complement: data.complemento,
@@ -57,7 +58,8 @@ function Cadastro() {
     }, {
         headers: {
             "Api-key": "6SqCqv9Dkm8kNp0XKCVryKG2a2fsjztU",
-            "Access-Control-Allow-Origin": "*"
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": "true"
         }
     })
         .then(function (response) {
@@ -82,11 +84,11 @@ function Cadastro() {
             {errors.email && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.email.message}</span>}
         </label>
         <label className="text-purple tm:text-15 md:text-18 font-bold tm:col-span-6 md:col-span-2" htmlFor="cpf">CPF
-            <input { ...register('cpf', { required: "Este campo é obrigatório", pattern: { value: /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/, message: "CPF inválido"} })} type="text" className={errors.cpf ? "bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition" : "bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition"} name="cpf" id="cpf" maxLength={14}/>
+            <input { ...register('cpf', { required: "Este campo é obrigatório" })} type="text" className={errors.cpf ? "bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition" : "bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition"} name="cpf" id="cpf" maxLength={14}/>
             {errors.cpf && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.cpf.message}</span>}
         </label>
         <label className="text-purple tm:text-15 md:text-18 font-bold tm:col-span-6 md:col-span-3" htmlFor="telefone">Telefone
-        <input { ...register('telefone', { required: "Este campo é obrigatório" })} type="tel" className={errors.telefone ? "bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition" : "bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition"} name="telefone" maxLength={10} id="telefone"/>
+        <input { ...register('telefone', { required: "Este campo é obrigatório" })} type="tel" className={errors.telefone ? "bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition" : "bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition"} name="telefone" maxLength={11} id="telefone"/>
         {errors.telefone && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.telefone.message}</span>}
         </label>
         <label className="text-purple tm:text-15 md:text-18 font-bold tm:col-span-6 md:col-span-3" htmlFor="cep">CEP <p className="tm:text-10 hover:underline inline font-semibold"><Link href="https://buscacepinter.correios.com.br/app/endereco/index.php"><a target="_blank" rel="noreferrer">Não sabe o CEP?</a></Link></p>
