@@ -41,7 +41,7 @@ function Cadastro() {
     }
 
     const onSubmit = (data) => 
-    axios.post('http://api.experimentador.com.br/api/v1/orders', {
+    axios.post('https://api.experimentador.com.br/api/v1/orders', {
         user_name: data.nome,
         email: data.email,
         password: '',
