@@ -1,7 +1,7 @@
 import Paragraph from "../../atom/Paragraph/Paragraph";
 import Title from "../../atom/Title/Title";
 import React, { useState } from 'react'
-import Speaker from "../../molecule/Speaker/speaker";
+import Speaker from "../../molecule/Speaker/Speaker";
 import Smartphone from "../../molecule/Smartphone/Smartphone";
 
 
