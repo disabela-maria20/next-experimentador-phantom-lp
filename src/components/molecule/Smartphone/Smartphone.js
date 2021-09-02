@@ -11,7 +11,7 @@ const Smartphone = () => {
     }
 
     return (
-        <section className="bg-white p-26 rounded-medium mt-31">
+        <section className="bg-white p-26 rounded-medium mt-31 mb-38 md:m-auto">
             <div className="grid grid-cols-2 gap-15 mb-38">
                 <button className={`text-13 md:text-18 p-13 md:p-22 rounded-medium ${abrir ? 'bg-black text-white' : 'bg-grey-100 text-grey-200'}`} onClick={abrirSpeaker}>
                     GOOGLE ASSISTENTE
