@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 
 const Conversao = () => {
@@ -29,7 +30,7 @@ const Conversao = () => {
             <label htmlFor="autorizo" className="text-13 text-white font-normal"> Autorizo receber materiais da marca.</label>
             {errors.autorizo && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.autorizo.message}</span>}
             </div>
-            <p className="text-13 font-normal text-white">Ao informar meus dados, eu concordo com a <a href="/politica-de-privacidade" className="hover:underline font-semibold">Política de Privacidade</a></p>
+            <p className="text-13 font-normal text-white">Ao informar meus dados, eu concordo com a <Link href="/politica-de-privacidade"><a className="hover:underline font-semibold">Política de Privacidade</a></Link></p>
                 <div className="flex w-1/2 pt-26">
                 <button className="bg-purple bg-opacity-90 hover:bg-opacity-100 text-white font-bold text-18 rounded-full tm:py-13 md:py-13 tm:px-18 md:px-45 w-full outline-none hover:bg-purple hover:text-white hover:shadow-lg transition tm:col-span-6 md:col-span-2"> Desbloquear </button>
                 </div>

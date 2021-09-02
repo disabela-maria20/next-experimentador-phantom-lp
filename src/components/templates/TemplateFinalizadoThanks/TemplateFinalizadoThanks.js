@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Paragraph from "../../atom/Paragraph/Paragraph"
 import Title from "../../atom/Title/Title"
 import Navbar from "../../molecule/Navbar/Navbar"
@@ -19,7 +20,7 @@ function TemplateFinalizadoThanks() {
                         </div>
                         <div className="bg-white rounded-medium text-black text-center font-bold text-55 p-13 mt-22 uppercase tracking-widest">Phantom</div>
                         <div className="text-15 text-center text-white">*promoção válida enquanto durarem os estoques</div>
-                        <div className="mx-auto"><a href="https://www.belezanaweb.com.br/phantom-paco-rabanne-eau-de-toilette-perfume-masculino-50ml/?utm_source=puig&utm_medium=amostras-qrcode&utm_campaign=phantom_pacorabanne" target="_blank" className="bg-purple bg-opacity-90 hover:bg-opacity-100 text-white text-center font-bold text-18 rounded-full py-13 tm:px-18 md:px-45 outline-none hover:bg-purple hover:text-white hover:shadow-lg transition tm:col-span-6 md:col-span-2">Compre pelo site</a>
+                        <div className="mx-auto"><Link href="https://www.belezanaweb.com.br/phantom-paco-rabanne-eau-de-toilette-perfume-masculino-50ml/?utm_source=puig&utm_medium=amostras-qrcode&utm_campaign=phantom_pacorabanne"><a target="_blank" rel="noreferrer" className="bg-purple bg-opacity-90 hover:bg-opacity-100 text-white text-center font-bold text-18 rounded-full py-13 tm:px-18 md:px-45 outline-none hover:bg-purple hover:text-white hover:shadow-lg transition tm:col-span-6 md:col-span-2">Compre pelo site</a></Link>
                         </div>
                         </div>
                     </div>
