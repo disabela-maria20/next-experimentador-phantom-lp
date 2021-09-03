@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 
 
-function cadastro() {
+function CadastroHash() {
 
     const router = useRouter()
     const { queryPage } = router.query
@@ -15,4 +15,4 @@ function cadastro() {
     )
 }
 
-export default cadastro
+export default CadastroHash
