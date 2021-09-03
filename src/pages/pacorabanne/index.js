@@ -9,15 +9,15 @@ export default function Home() {
 		return (
 			<>
       	<Head>
-		  <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-                    <meta name="language" content="pt-BR" />
-                    <meta name='viewport' content='width=device-width, initial-scale=1' />
-					<link rel="shortcut icon" href="favicon144.png" />
-						<meta name="title" content="Phantom by Paco Rabanne | Experimentador" />
-						<meta name="description" content="Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas." />
+		 		<meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta name="language" content="pt-BR" />
+                <meta name='viewport' content='width=device-width, initial-scale=1' />
+				<link rel="shortcut icon" href="favicon144.png" />
+				<meta name="title" content="Phantom by Paco Rabanne | Experimentador" />
+				<meta name="description" content="Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas." />
 
 
-						<title>Phantom by Paco Rabanne | Experimentador</title>
+				<title>Phantom by Paco Rabanne | Experimentador</title>
 
 				<meta property="og:type" content="page" />
 				<meta property="og:url" content="thanks" />

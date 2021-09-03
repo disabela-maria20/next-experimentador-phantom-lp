@@ -42,7 +42,7 @@ const Smartphone = () => {
                     </div>
                     <div className="py-15 grid-col-50-100">
                         <div className="bg-black text-white font-bold rounded-medium text-center text-26 w-45 h-45 flex justify-center">
-                            <span>1</span>
+                            <span>2</span>
                         </div>
                         <div className="ml-10">
                             <p className="text-15 md:text-18 text-black">Abra o app, habilite o microfone e diga a seguinte frase de invocação para ser atendido:</p>
@@ -51,7 +51,7 @@ const Smartphone = () => {
                     </div>
                     <div className="py-15 grid-col-50-100">
                         <div className="bg-black font-bold text-white rounded-medium text-center text-26 w-45 h-45 flex justify-center">
-                            <span>2</span>
+                            <span>3</span>
                         </div>
                         <div className="ml-10">
                             <p className="text-15 md:text-18 text-black">Para continuar, informe o seu telefone com o DDD: </p>
@@ -60,7 +60,7 @@ const Smartphone = () => {
                     </div>
                     <div className="py-15 grid-col-50-100">
                         <div className="bg-black font-bold text-white rounded-medium text-center text-26 w-45 h-45 flex justify-center">
-                            <span>3</span>
+                            <span>4</span>
                         </div>
                         <div className="ml-10">
                             <p className="text-15 md:text-18 text-black">Confirme o seu telefone:</p>
@@ -69,7 +69,7 @@ const Smartphone = () => {
                     </div>
                     <div className="py-15 grid-col-50-100">
                         <div className="bg-black font-bold text-white rounded-medium text-center text-26 w-45 h-45 flex justify-center">
-                            <span>4</span>
+                            <span>5</span>
                         </div>
                         <div className="ml-10">
                             <p className="text-15 md:text-18 text-black">Você receberá um SMS, com um link para finalizar o cadastro e receberá a amostra na sua casa.</p>
@@ -97,7 +97,7 @@ const Smartphone = () => {
                     </div>
                     <div className="py-15 grid-col-50-100">
                         <div className="bg-black text-white font-bold rounded-medium text-center text-26 w-45 h-45 flex justify-center">
-                            <span>1</span>
+                            <span>2</span>
                         </div>
                         <div className="ml-10">
                             <p className="text-15 md:text-18 text-black">Abra o app, habilite o microfone e diga a seguinte frase de invocação para ser atendido:</p>
@@ -106,16 +106,16 @@ const Smartphone = () => {
                     </div>
                     <div className="py-15 grid-col-50-100">
                         <div className="bg-black font-bold text-white rounded-medium text-center text-26 w-45 h-45 flex justify-center">
-                            <span>2</span>
+                            <span>3</span>
                         </div>
                         <div className="ml-10">
                             <p className="text-15 md:text-18 text-black">Para continuar, informe o seu telefone com o DDD: </p>
-                            <p className="text-purple font-bold bg-purple-200 p-15 rounded mt-15 text-15 md:text-18">O meu telefone é (21) 9999-9999</p>
+                            <p className="text-purple font-bold bg-purple-200 p-15 rounded mt-15 text-15 md:text-18">O meu telefone é: (21) 9999-9999</p>
                         </div>
                     </div>
                     <div className="py-15 grid-col-50-100">
                         <div className="bg-black font-bold text-white rounded-medium text-center text-26 w-45 h-45 flex justify-center">
-                            <span>3</span>
+                            <span>4</span>
                         </div>
                         <div className="ml-10">
                             <p className="text-15 md:text-18 text-black">Confirme o seu telefone:</p>
@@ -124,7 +124,7 @@ const Smartphone = () => {
                     </div>
                     <div className="py-15 grid-col-50-100">
                         <div className="bg-black font-bold text-white rounded-medium text-center text-26 w-45 h-45 flex justify-center">
-                            <span>4</span>
+                            <span>5</span>
                         </div>
                         <div className="ml-10">
                             <p className="text-15 md:text-18 text-black">Você receberá um SMS, com um link para finalizar o cadastro e receberá a amostra na sua casa.</p>
