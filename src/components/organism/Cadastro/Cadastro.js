@@ -115,7 +115,7 @@ function Cadastro() {
                             <InputMask mask="+55 (99) 99999-9999" {...register('telefone', { required: "Este campo é obrigatório" })} type="tel" className={errors.telefone ? "bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition" : "bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition"} name="telefone" id="telefone" />
                             {errors.telefone && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.telefone.message}</span>}
                         </label>
-                        <label className="text-purple tm:text-15 md:text-18 font-bold tm:col-span-6 md:col-span-3" htmlFor="cep">CEP <p className="tm:text-10 hover:underline inline font-semibold"><a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank">Não sabe o CEP?</a></p>
+                        <label className="text-purple tm:text-15 md:text-18 font-bold tm:col-span-6 md:col-span-3" htmlFor="cep">CEP <p className="tm:text-10 hover:underline inline font-semibold"><Link href="https://buscacepinter.correios.com.br/app/endereco/index.php"><a target="_blank" rel="noreferrer">Não sabe o CEP?</a></Link></p>
                             <InputMask mask="99999-999" type="text" {...register('cep', { required: "Este campo é obrigatório", message: "CEP inválido" })} className={errors.cep ? "bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition" : "bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition"} name="cep" id="cep" onBlur={(e) => onBlurCep(e, setValue)} />
                             {errors.cep && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.cep.message}</span>}
                         </label>
@@ -188,7 +188,7 @@ function Cadastro() {
                                 <label htmlFor="autorizo" className="text-15 font-normal"> Autorizo receber materiais da marca.</label>
                                 {errors.autorizo && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.autorizo.message}</span>}
                             </div>
-                            <p className="text-15 font-normal">Ao informar meus dados, eu concordo com a <a href="/politica-de-privacidade" className="hover:underline font-semibold">Política de Privacidade</a></p>
+                            <p className="text-15 font-normal">Ao informar meus dados, eu concordo com a <Link href="/politica-de-privacidade"><a className="hover:underline font-semibold" rel="noreferrer">Política de Privacidade</a></Link></p>
                         </div>
                         <ReCAPTCHA
                         sitekey="6LeEgT8cAAAAAOSqFg_s8xF6whnSAR6LjUudOiO5"
