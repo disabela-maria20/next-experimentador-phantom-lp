@@ -4,7 +4,7 @@ import Title from "../../atom/Title/Title";
 import Footer from "../../organism/Footer/Footer";
 import Paragraph from "../../atom/Paragraph/Paragraph";
 
-function TemplateCadastro() {
+function TemplateCadastro({ token }) {
     return (
         <>
             <Navbar />
@@ -16,7 +16,7 @@ function TemplateCadastro() {
                     <div className="md:order-2 tm:order-1">
                         <Title titulo="Libere sua amostra" extraclass="text-black"/>
                         <Paragraph paragrafo="Preencha atentamente os campos abaixo para liberar sua amostra" extraclass="text-black py-38" />
-                        <Cadastro />
+                        <Cadastro token={token}/>
                     </div>
                 </div>
             </section>

@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import ReCAPTCHA from 'react-google-recaptcha';
 import Link from 'next/link';
 
-function Cadastro() {
+function Cadastro({ token }) {
     const router = useRouter()
     //const [ValidateCep, setValidateCep] = useState(false)
     //const vcep = useRef()
@@ -46,6 +46,14 @@ function Cadastro() {
     const recaptchaRef = React.useRef()
 
     const onSubmit = async (data) => {
+         await axios.put(`https://api.experimentador.com.br/api/v1/links/${token}`,{ }, {
+            headers: {
+                "Api-key": "6SqCqv9Dkm8kNp0XKCVryKG2a2fsjztU",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": "true"
+            }
+        })
+
         const cep = data.cep.replace(/\D/g, '')
         const cpf = data.cpf.replace(/[^\d]/g, '')
         const telefone = data.telefone.replace(/[^\d]/g, '')
@@ -89,7 +97,7 @@ function Cadastro() {
             }
         })
             .then(function (response) {
-                router.push('/thanks')
+                router.push('/pacorabanne/thanks')
             })
             .catch(err => console.log(err.response))
     }
@@ -189,7 +197,7 @@ function Cadastro() {
                                 <label htmlFor="autorizo" className="text-15 font-normal"> Autorizo receber materiais da marca.</label>
                                 {errors.autorizo && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.autorizo.message}</span>}
                             </div>
-                            <p className="text-15 font-normal">Ao informar meus dados, eu concordo com a <Link href="/politica-de-privacidade"><a className="hover:underline font-semibold" rel="noreferrer">Política de Privacidade</a></Link></p>
+                            <p className="text-15 font-normal">Ao informar meus dados, eu concordo com a <Link href="/pacorabanne/politica-de-privacidade"><a className="hover:underline font-semibold" rel="noreferrer">Política de Privacidade</a></Link></p>
                         </div>
                         <ReCAPTCHA
                         sitekey="6LeEgT8cAAAAAOSqFg_s8xF6whnSAR6LjUudOiO5"
