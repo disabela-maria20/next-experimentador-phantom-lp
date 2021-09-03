@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-const { default: TemplateThanks } = require("../components/templates/TemplateThanks/TemplateThanks");
+const { default: TemplateThanks } = require("../../components/templates/TemplateThanks/TemplateThanks");
 
 function thanks() {
     return (

@@ -1,4 +1,4 @@
-const { default: TemplateFinalizado } = require("../components/templates/TemplateFinalizado/TemplateFinalizado");
+const { default: TemplateFinalizado } = require("../../components/templates/TemplateFinalizado/TemplateFinalizado");
 
 function finalizado() {
     return (

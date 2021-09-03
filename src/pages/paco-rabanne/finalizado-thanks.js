@@ -1,4 +1,4 @@
-import TemplateFinalizadoThanks from '../components/templates/TemplateFinalizadoThanks/TemplateFinalizadoThanks'
+import TemplateFinalizadoThanks from '../../components/templates/TemplateFinalizadoThanks/TemplateFinalizadoThanks'
 
 function finalizadothanks() {
     return (
