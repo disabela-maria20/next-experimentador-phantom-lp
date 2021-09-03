@@ -4,6 +4,7 @@ import axios from 'axios'
 import InputMask from 'react-input-mask';
 import { useRouter } from 'next/router';
 import ReCAPTCHA from 'react-google-recaptcha';
+import Link from 'next/link';
 
 function Cadastro() {
     const router = useRouter()
