@@ -32,7 +32,7 @@ const Conversao = () => {
 })
         .then(function (response) {
             console.log(response);
-            router.push('/finalizado-thanks')
+            router.push('/pacorabanne/finalizado-thanks')
 
         })
         .catch(err => console.log(err.response));

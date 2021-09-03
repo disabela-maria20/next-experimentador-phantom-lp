@@ -14,8 +14,8 @@ function TemplateCadastro({ token }) {
                         <img src="/img/robo-estilo.png" alt="Phantom by Paco Rabanne" />
                     </div>
                     <div className="md:order-2 tm:order-1">
-                        <Title titulo="Libere sua amostra" extraclass="text-black"/>
-                        <Paragraph paragrafo="Preencha atentamente os campos abaixo para liberar sua amostra" extraclass="text-black py-38" />
+                        <Title titulo="Libere sua amostra" extraclass="tm:text-white md:text-black"/>
+                        <Paragraph paragrafo="Preencha atentamente os campos abaixo para liberar sua amostra" extraclass="tm:text-white md:text-black py-38" />
                         <Cadastro token={token}/>
                     </div>
                 </div>
