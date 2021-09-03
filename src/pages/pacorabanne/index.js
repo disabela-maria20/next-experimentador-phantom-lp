@@ -9,13 +9,13 @@ export default function Home() {
 		return (
 			<>
       	<Head>
-				<meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-				<meta name="language" content="pt-BR" />
-				<meta name='viewport' content='width=device-width, initial-scale=1' />
+		  <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+                    <meta name="language" content="pt-BR" />
+                    <meta name='viewport' content='width=device-width, initial-scale=1' />
+					<link rel="shortcut icon" href="favicon144.png" />
 						<meta name="title" content="Phantom by Paco Rabanne | Experimentador" />
 						<meta name="description" content="Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas." />
-						<meta name="keywords" content="phantom, paco, rabanne, perfume, cheiro, masculino, tecnologia" />
-						<link rel="shortcut icon" href="favicon144.png" />
+
 
 						<title>Phantom by Paco Rabanne | Experimentador</title>
 
@@ -51,7 +51,7 @@ export async function getServerSideProps() {
 		//router.push('/finalizado')
 		return {
 			redirect: {
-				destination : 'paco-rabanne/finalizado',
+				destination : 'pacorabanne/finalizado',
 				permanent: false,
 			}
 		}
