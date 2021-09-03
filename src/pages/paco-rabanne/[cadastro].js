@@ -6,10 +6,10 @@ import { useRouter } from 'next/router'
 function cadastro() {
 
     const router = useRouter()
-    const { cadastro } = router.query
+    const { queryPage } = router.query
     return (
         <>  
-        <p>{cadastro}</p>
+        <p>{queryPage}</p>
            <TemplateCadastro />
         </>
     )
