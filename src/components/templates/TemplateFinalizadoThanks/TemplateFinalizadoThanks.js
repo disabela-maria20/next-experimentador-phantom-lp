@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Paragraph from "../../atom/Paragraph/Paragraph"
 import Title from "../../atom/Title/Title"
 import Navbar from "../../molecule/Navbar/Navbar"
 import Footer from "../../organism/Footer/Footer"
