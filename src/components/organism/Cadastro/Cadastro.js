@@ -1,9 +1,15 @@
 import { useForm } from 'react-hook-form';
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import axios from 'axios'
 import InputMask from 'react-input-mask';
+import { useRouter } from 'next/router';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 function Cadastro() {
+    const router = useRouter()
+    //const [ValidateCep, setValidateCep] = useState(false)
+    //const vcep = useRef()
+
 
     const { register, handleSubmit, formState: { errors }, setValue } = useForm({
         mode: 'onChange'
@@ -13,6 +19,7 @@ function Cadastro() {
         const { value } = e.target
 
         const cep = value?.replace(/[^0-9]/g, '')
+        
 
         if (cep?.length !== 8) {
             return;
@@ -22,7 +29,8 @@ function Cadastro() {
             .then((res) => res.json())
             .then((data) => {
                 if (data && !data.logradouro) {
-                    console.log("cep errado")
+                    //vcep.current.onKeyup(()=> {
+                        //setValidateCep(true)})
                 }
                 setValue('endereco', data.logradouro)
                 setValue('cidade', data.localidade)
@@ -30,22 +38,48 @@ function Cadastro() {
                 setValue('bairro', data.bairro)
             })
     }
+    
+    function onChange(value) {
+        console.log("Captcha value:", value);
+      }
+    const recaptchaRef = React.useRef()
 
-    const onSubmit = (data) => {
-        axios.post('http://api.experimentador.com.br/api/v1/orders', {
+    const onSubmit = async (data) => {
+        const cep = data.cep.replace(/\D/g, '')
+        const cpf = data.cpf.replace(/[^\d]/g, '')
+        const telefone = data.telefone.replace(/[^\d]/g, '')
+        try{
+            const response = await axios.get("https://api.experimentador.com.br/api/v1/products?name=phantom", {
+                headers: {
+                    "Api-key": "6SqCqv9Dkm8kNp0XKCVryKG2a2fsjztU",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Credentials": "true"
+                }     
+            })
+            console.log(response)
+            const quantity = response.data[0].quantity
+            if(quantity == 0) {
+                router.push('/finalizado')
+                return
+            }
+        }catch(erro){
+            console.log(erro)
+        }
+
+        const post = await axios.post('https://api.experimentador.com.br/api/v1/orders', {
             user_name: data.nome,
             email: data.email,
             password: '',
-            phone: data.telefone,
-            cep: data.cep,
-            cpf: data.cpf,
+            phone: telefone,
+            cep: cep,
+            cpf: cpf,
             house_number: data.numero,
             street_name: data.endereco,
             complement: data.complemento,
             city: data.cidade,
             state: data.estado,
             district: data.bairro,
-            privacy_policy_authorization: data.autorizo,
+            privacy_policy_authorization: data.aceito,
         }, {
             headers: {
                 "Api-key": "6SqCqv9Dkm8kNp0XKCVryKG2a2fsjztU",
@@ -54,12 +88,11 @@ function Cadastro() {
             }
         })
             .then(function (response) {
-                console.log(response);
+                router.push('/thanks')
             })
-            .catch(function (error) {
-                console.log(error);
-            });
+            .catch(err => console.log(err.response))
     }
+
     return (
         <section className="mx-auto tm:max-w-xs sm:max-w-sm md:max-w-3xl my-15">
             <div className="rounded-medium bg-white p-38 shadow-xl">
@@ -79,7 +112,7 @@ function Cadastro() {
                             {errors.cpf && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.cpf.message}</span>}
                         </label>
                         <label className="text-purple tm:text-15 md:text-18 font-bold tm:col-span-6 md:col-span-3" htmlFor="telefone">Telefone
-                            <InputMask mask="(99) 99999-9999" {...register('telefone', { required: "Este campo é obrigatório" })} type="tel" className={errors.telefone ? "bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition" : "bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition"} name="telefone" id="telefone" />
+                            <InputMask mask="+55 (99) 99999-9999" {...register('telefone', { required: "Este campo é obrigatório" })} type="tel" className={errors.telefone ? "bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition" : "bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition"} name="telefone" id="telefone" />
                             {errors.telefone && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.telefone.message}</span>}
                         </label>
                         <label className="text-purple tm:text-15 md:text-18 font-bold tm:col-span-6 md:col-span-3" htmlFor="cep">CEP <p className="tm:text-10 hover:underline inline font-semibold"><a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank">Não sabe o CEP?</a></p>
@@ -157,6 +190,12 @@ function Cadastro() {
                             </div>
                             <p className="text-15 font-normal">Ao informar meus dados, eu concordo com a <a href="/politica-de-privacidade" className="hover:underline font-semibold">Política de Privacidade</a></p>
                         </div>
+                        <ReCAPTCHA
+                        sitekey="6LeEgT8cAAAAAOSqFg_s8xF6whnSAR6LjUudOiO5"
+                        onChange={onChange}
+                        ref={recaptchaRef}
+                        size="invisible"
+                        />
                         <button className="bg-purple bg-opacity-90 hover:bg-opacity-100 text-white font-bold text-15 rounded-full tm:py-6 md:py-13 tm:px-18 md:px-45 outline-none hover:bg-purple hover:text-white hover:shadow-lg transition tm:col-span-6 md:col-span-2"> Cadastrar </button>
                     </div>
                     <p className="text-red text-15"></p>
