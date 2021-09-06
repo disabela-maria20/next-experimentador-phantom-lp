@@ -9,7 +9,7 @@ function Introduction() {
 				<div className="tm:container mx-auto grid grid-cols-1 md:grid-cols-2 px-15">
 					<div className="">
 						<Title titulo="O aroma do futuro" extraclass="text-black pb-38" />
-						<div className="bg-white p-18 mb-38 md:mb-0 md:p-0 rounded-medium md:bg-transparent">
+						<div className="bg-white tm:p-18 mb-38 md:mb-0 md:p-0 rounded-medium md:bg-transparent">
 							<Paragraph paragrafo="Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas. Uma fragrância aromática futurista criada a partir do choque entre o trabalho artesanal de luxo e as novas tecnologias. Um aroma ousado, com notas cremosas e viciantes de lavanda, e uma energizante fusão de limão e baunilha, amadeirada e sexy." extraclass="text-black md:pb-55" />
 						</div>
 						<div className="react-player">
