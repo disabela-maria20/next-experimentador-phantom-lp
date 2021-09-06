@@ -204,7 +204,7 @@ function Cadastro({ token }) {
                                 {errors.maior && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.maior.message}</span>}
                             </div>
                             <div>
-                                <input {...register('autorizo', { required: "Este campo é obrigatório" })} type="checkbox" id="autorizo" name="autorizo" />
+                                <input type="checkbox" id="autorizo" name="autorizo" />
                                 <label htmlFor="autorizo" className="text-15 font-normal"> Autorizo receber materiais da marca.</label>
                                 {errors.autorizo && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.autorizo.message}</span>}
                             </div>
