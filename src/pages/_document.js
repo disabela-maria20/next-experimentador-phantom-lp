@@ -17,7 +17,6 @@ class Documentos extends Document {
                 <body>
                     <Main />
                     <NextScript />
-                    TagManager.initialize()
                 </body>
             </Html>
         )
