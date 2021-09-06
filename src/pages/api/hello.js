@@ -4,7 +4,7 @@ export default function handler(req, res) {
   res.status(200).json({ name: 'John Doe' })
 }
 
-const human = await validateHuman(formData.tokenRecaptcha)
+/*const human = await validateHuman(formData.tokenRecaptcha)
 if(!human) {
   res.status(400)
   res.json({errors: ["Bot detectado"]})
@@ -19,4 +19,4 @@ async function validateHuman(tokenRecaptcha) {
   const data = await response.json()
 
   return data.success
-}
+}*/

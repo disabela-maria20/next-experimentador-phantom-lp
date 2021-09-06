@@ -74,8 +74,8 @@ function Cadastro({ token }) {
             })
             console.log(response)
             const quantity = response.data[0].quantity
-            if(quantity == 0) {
-                router.push('/finalizado')
+            if(quantity >= 500) {
+                router.push('/pacorabanne/finalizado')
                 return
             }
         }catch(erro){
