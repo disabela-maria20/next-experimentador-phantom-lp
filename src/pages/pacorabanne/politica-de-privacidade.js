@@ -5,9 +5,9 @@ import TemplatePolitica from "../../components/templates/TemplatePolitica/Templa
 function politicadeprivacidade() {
     return (
         <>
-        <Navbar />
-        <TemplatePolitica />
-        <Footer />
+            <Navbar />
+            <TemplatePolitica />
+            <Footer />
         </>
     )
 }

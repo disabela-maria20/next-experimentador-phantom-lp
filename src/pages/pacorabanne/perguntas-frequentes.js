@@ -5,9 +5,9 @@ import TemplatePerguntas from "../../components/templates/TemplatePerguntas/Temp
 function PerguntasFrequentes() {
     return (
         <>
-        <Navbar />
-        <TemplatePerguntas />
-        <Footer />
+            <Navbar />
+            <TemplatePerguntas />
+            <Footer />
         </>
     )
 }

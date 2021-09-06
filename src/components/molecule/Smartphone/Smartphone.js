@@ -23,13 +23,17 @@ const Smartphone = () => {
             </div>
             {abrir ?
                 <article>
-                    
+
                     <div className="grid grid-cols-2 gap-18 py-26">
                         <div className="pl-45">
-                            <Link href=""><a><img src="/img/app_store.svg" alt="Download na App Store da Apple" /></a></Link>
+                            <Link href="https://apps.apple.com/us/app/google-assistant/id1220976145">
+                                <a target="_blank"><img src="/img/app_store.svg" alt="Download na App Store da Apple" /></a>
+                            </Link>
                         </div>
                         <div className="pr-45">
-                        <Link href=""><a><img src="/img/google_play.svg" alt="Download na Google Play do Android" /></a></Link>
+                            <Link href="https://play.google.com/store/apps/details?id=com.google.android.apps.googleassistant&hl=pt_BR&gl=US">
+                                <a target="_blank"><img src="/img/google_play.svg" alt="Download na Google Play do Android" /></a>
+                            </Link>
                         </div>
                     </div>
                     <div className="py-15 grid-col-50-100">
@@ -46,7 +50,7 @@ const Smartphone = () => {
                         </div>
                         <div className="ml-10">
                             <p className="text-15 md:text-18 text-black">Abra o app, habilite o microfone e diga a seguinte frase de invocação para ser atendido:</p>
-                            <p className="text-purple font-bold font-bold bg-purple-200 p-15 rounded mt-15 text-15 md:text-18">Ok, Google. Falar com Experimentador.</p>
+                            <p className="text-purple font-bold bg-purple-200 p-15 rounded mt-15 text-15 md:text-18">Ok, Google. Falar com Experimentador.</p>
                         </div>
                     </div>
                     <div className="py-15 grid-col-50-100">
@@ -81,10 +85,10 @@ const Smartphone = () => {
                 <article>
                     <div className="grid grid-cols-2 gap-18 py-26">
                         <div className="pl-45">
-                            <Link href=""><a><img src="/img/app_store.svg" alt="Download na App Store da Apple" /></a></Link>
+                            <Link href="https://apps.apple.com/br/app/amazon-alexa/id944011620"><a target="_blank"><img src="/img/app_store.svg" alt="Download na App Store da Apple" /></a></Link>
                         </div>
                         <div className="pr-45">
-                        <Link href=""><a><img src="/img/google_play.svg" alt="Download na Google Play do Android" /></a></Link>
+                            <Link href="https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=pt_BR&gl=US"><a target="_blank"><img src="/img/google_play.svg" alt="Download na Google Play do Android" /></a></Link>
                         </div>
                     </div>
                     <div className="py-15 grid-col-50-100">
@@ -101,7 +105,7 @@ const Smartphone = () => {
                         </div>
                         <div className="ml-10">
                             <p className="text-15 md:text-18 text-black">Abra o app, habilite o microfone e diga a seguinte frase de invocação para ser atendido:</p>
-                            <p className="text-purple font-bold font-bold bg-purple-200 p-15 rounded mt-15 text-15 md:text-18">Alexa. Abrir o Experimentador.</p>
+                            <p className="text-purple font-bold bg-purple-200 p-15 rounded mt-15 text-15 md:text-18">Alexa. Abrir o Experimentador.</p>
                         </div>
                     </div>
                     <div className="py-15 grid-col-50-100">

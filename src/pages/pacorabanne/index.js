@@ -6,12 +6,12 @@ import { useRouter } from 'next/router'
 export default function Home() {
 	const router = useRouter()
 
-		return (
-			<>
-      	<Head>
-		 		<meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-                <meta name="language" content="pt-BR" />
-                <meta name='viewport' content='width=device-width, initial-scale=1' />
+	return (
+		<>
+			<Head>
+				<meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="language" content="pt-BR" />
+				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel="shortcut icon" href="favicon144.png" />
 				<meta name="title" content="Phantom by Paco Rabanne | Experimentador" />
 				<meta name="description" content="Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas." />
@@ -34,9 +34,9 @@ export default function Home() {
 				<meta name="twitter:description" content="Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas." />
 			</Head>
 			<TemplateHome />
-			</>
+		</>
 	)
-	
+
 }
 export async function getServerSideProps() {
 	const response = await axios.get("https://api.experimentador.com.br/api/v1/products?name=phantom", {
@@ -44,21 +44,21 @@ export async function getServerSideProps() {
 			"Api-key": "6SqCqv9Dkm8kNp0XKCVryKG2a2fsjztU",
 			"Access-Control-Allow-Origin": "*",
 			"Access-Control-Allow-Credentials": "true"
-		}  
+		}
 	})
 	const quantity = response.data.rows[0].quantity
-	if(quantity == 0) {
+	if (quantity == 0) {
 		//router.push('/finalizado')
 		return {
 			redirect: {
-				destination : 'pacorabanne/finalizado',
+				destination: 'pacorabanne/finalizado',
 				permanent: false,
 			}
 		}
 	}
 	return {
-	  props: {
-		  
-	  }, // will be passed to the page component as props
+		props: {
+
+		}, // will be passed to the page component as props
 	}
 }

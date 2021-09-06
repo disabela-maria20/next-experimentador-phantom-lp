@@ -20,7 +20,7 @@ function Cadastro({ token }) {
         const { value } = e.target
 
         const cep = value?.replace(/[^0-9]/g, '')
-        
+
 
         if (cep?.length !== 8) {
             return;
@@ -31,7 +31,7 @@ function Cadastro({ token }) {
             .then((data) => {
                 if (data && !data.logradouro) {
                     //vcep.current.onKeyup(()=> {
-                        //setValidateCep(true)})
+                    //setValidateCep(true)})
                 }
                 setValue('endereco', data.logradouro)
                 setValue('cidade', data.localidade)
@@ -39,21 +39,21 @@ function Cadastro({ token }) {
                 setValue('bairro', data.bairro)
             })
     }
-    
+
     function onChange(value) {
         console.log("Captcha value:", value);
-      }
+    }
+    const recaptchaRef = useRef(ReCAPTCHA);
+    <ReCAPTCHA
+        sitekey={process.env.RECAPTCHA_SITE_KEY}
+        onChange={onChange}
+        ref={recaptchaRef}
+        size="invisible"
+    />
 
-      <ReCAPTCHA
-      sitekey={process.env.RECAPTCHA_SITE_KEY}
-      onChange={onChange}
-      ref={recaptchaRef}
-      size="invisible"
-      />
-    const recaptchaRef = useRef();
 
     const onSubmit = async (data) => {
-         await axios.put(`https://api.experimentador.com.br/api/v1/links/${token}`,{ }, {
+        await axios.put(`https://api.experimentador.com.br/api/v1/links/${token}`, {}, {
             headers: {
                 "Api-key": process.env.FRONTEND_API_KEY,
                 "Access-Control-Allow-Origin": "*",
@@ -64,27 +64,27 @@ function Cadastro({ token }) {
         const cep = data.cep.replace(/\D/g, '')
         const cpf = data.cpf.replace(/[^\d]/g, '')
         const telefone = data.telefone.replace(/[^\d]/g, '')
-        try{
+        try {
             const response = await axios.get("https://api.experimentador.com.br/api/v1/products?name=phantom", {
                 headers: {
                     "Api-key": process.env.FRONTEND_API_KEY,
                     "Access-Control-Allow-Origin": "*",
                     "Access-Control-Allow-Credentials": "true"
-                }     
+                }
             })
-            console.log(response)
-            const quantity = response.data[0].quantity
-            if(quantity >= 500) {
+            console.log(response.data[0].quantity)
+            const quantity = Number(response.data[0].quantity)
+            if (quantity <= 500) {
                 router.push('/pacorabanne/finalizado')
                 return
             }
-        }catch(erro){
+        } catch (erro) {
             console.log(erro)
         }
-        const tokenRecaptcha = await recaptchaRef.current.executeAsync();
-        recaptchaRef.current.reset()
+        // const tokenRecaptcha = await recaptchaRef.current.executeAsync();
+        // recaptchaRef.current.reset()
 
-        console.log(tokenRecaptcha, "token")
+        // console.log(tokenRecaptcha, "token")
         const post = await axios.post('https://api.experimentador.com.br/api/v1/orders', {
             user_name: data.nome,
             email: data.email,
@@ -99,8 +99,8 @@ function Cadastro({ token }) {
             state: data.estado,
             district: data.bairro,
             privacy_policy_authorization: data.aceito,
-            tokenRecaptcha
-                }, {
+            // tokenRecaptcha
+        }, {
             headers: {
                 "Api-key": process.env.FRONTEND_API_KEY,
                 "Access-Control-Allow-Origin": "*",
