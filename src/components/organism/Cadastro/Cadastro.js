@@ -128,7 +128,7 @@ function Cadastro({ token }) {
                             {errors.email && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.email.message}</span>}
                         </label>
                         <label className="text-purple tm:text-15 md:text-18 font-bold tm:col-span-6 md:col-span-2" htmlFor="cpf">CPF
-                            <InputMask mask="999.999.999-99" {...register('cpf', { required: "Este campo é obrigatório", pattern: { message: "CPF inválido" } })} type="text" className={errors.cpf ? "bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition" : "bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition"} name="cpf" id="cpf" />
+                            <InputMask mask="999.999.999-99" {...register('cpf', { required: "Este campo é obrigatório", pattern: { message: "CPF inválido" } })} type="tel" className={errors.cpf ? "bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition" : "bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition"} name="cpf" id="cpf" />
                             {errors.cpf && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.cpf.message}</span>}
                         </label>
                         <label className="text-purple tm:text-15 md:text-18 font-bold tm:col-span-6 md:col-span-3" htmlFor="telefone">Telefone
@@ -144,7 +144,7 @@ function Cadastro({ token }) {
                             {errors.endereco && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.endereco.message}</span>}
                         </label>
                         <label className="text-purple tm:text-15 md:text-18 font-bold tm:col-span-6 md:col-span-1" htmlFor="numero">Número
-                            <input {...register('numero', { required: "Este campo é obrigatório" })} type="text" className={errors.numero ? "bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition" : "bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition"} name="numero" id="numero" />
+                            <input {...register('numero', { required: "Este campo é obrigatório" })} type="tel" className={errors.numero ? "bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition" : "bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition"} name="numero" id="numero" />
                             {errors.numero && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.numero.message}</span>}
                         </label>
                         <label className="text-purple tm:text-15 md:text-18 font-bold tm:col-span-6 md:col-span-2" htmlFor="bairro">Complemento
@@ -160,7 +160,7 @@ function Cadastro({ token }) {
                             {errors.cidade && <span className="md:text-13 tm:text-10 text-red font-bold leading-title">{errors.cidade.message}</span>}
                         </label>
                         <label className="text-purple tm:text-15 md:text-18 font-bold tm:col-span-6 md:col-span-2 appearance-none" htmlFor="estado">Estado
-                            <select {...register('estado', { required: "Este campo é obrigatório" })} className={errors.estado ? "bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition" : "bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition"} name="estado" id="estado" >
+                            <select {...register('estado', { required: "Este campo é obrigatório" })} className={errors.estado ? "bg-purple-light rounded-full text-red p-13 w-full tm: my-10 md:my-15 outline-none ring-red ring-2 transition appearance-none" : "bg-purple-light rounded-full p-13 w-full tm: my-10 md:my-15 focus:outline-none focus:ring-purple focus:ring-2 transition appearance-none"} name="estado" id="estado" >
                                 <option value="" disabled selected> -- </option>
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
