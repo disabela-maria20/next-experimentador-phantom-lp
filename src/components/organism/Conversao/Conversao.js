@@ -24,7 +24,7 @@ const Conversao = () => {
     },
     {
         headers: {
-            "Api-key": "6SqCqv9Dkm8kNp0XKCVryKG2a2fsjztU",
+            "Api-key": process.env.FRONTEND_API_KEY,
             "Access-Control-Allow-Origin": "https://api.experimentador.com.br",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, HEAD, OPTIONS",
             "Access-Control-Allow-Credentials": "true"

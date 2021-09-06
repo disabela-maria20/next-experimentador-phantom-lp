@@ -28,7 +28,7 @@ module.exports = {
       }
     },
     fontFamily: {
-      sans: ['Raleway', 'sans-serif'],
+      sans: ['pacoregular','Raleway', 'sans-serif'],
     },
     fontSize: {
       '4': '4px',

@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'pacoregular';
+    src: url('/fonts/paco-webfont.woff2') format('woff2'),
+        url('/fonts/paco-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .bg-header {
     background-image: url('/img/Phantom-Header.jpg');
 }

@@ -43,12 +43,19 @@ function Cadastro({ token }) {
     function onChange(value) {
         console.log("Captcha value:", value);
       }
-    const recaptchaRef = React.useRef()
+
+      <ReCAPTCHA
+      sitekey={process.env.RECAPTCHA_SITE_KEY}
+      onChange={onChange}
+      ref={recaptchaRef}
+      size="invisible"
+      />
+    const recaptchaRef = useRef();
 
     const onSubmit = async (data) => {
          await axios.put(`https://api.experimentador.com.br/api/v1/links/${token}`,{ }, {
             headers: {
-                "Api-key": "6SqCqv9Dkm8kNp0XKCVryKG2a2fsjztU",
+                "Api-key": process.env.FRONTEND_API_KEY,
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Credentials": "true"
             }
@@ -60,7 +67,7 @@ function Cadastro({ token }) {
         try{
             const response = await axios.get("https://api.experimentador.com.br/api/v1/products?name=phantom", {
                 headers: {
-                    "Api-key": "6SqCqv9Dkm8kNp0XKCVryKG2a2fsjztU",
+                    "Api-key": process.env.FRONTEND_API_KEY,
                     "Access-Control-Allow-Origin": "*",
                     "Access-Control-Allow-Credentials": "true"
                 }     
@@ -74,7 +81,10 @@ function Cadastro({ token }) {
         }catch(erro){
             console.log(erro)
         }
+        const tokenRecaptcha = await recaptchaRef.current.executeAsync();
+        recaptchaRef.current.reset()
 
+        console.log(tokenRecaptcha, "token")
         const post = await axios.post('https://api.experimentador.com.br/api/v1/orders', {
             user_name: data.nome,
             email: data.email,
@@ -89,9 +99,10 @@ function Cadastro({ token }) {
             state: data.estado,
             district: data.bairro,
             privacy_policy_authorization: data.aceito,
-        }, {
+            tokenRecaptcha
+                }, {
             headers: {
-                "Api-key": "6SqCqv9Dkm8kNp0XKCVryKG2a2fsjztU",
+                "Api-key": process.env.FRONTEND_API_KEY,
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Credentials": "true"
             }
@@ -199,12 +210,7 @@ function Cadastro({ token }) {
                             </div>
                             <p className="text-15 font-normal">Ao informar meus dados, eu concordo com a <Link href="/pacorabanne/politica-de-privacidade"><a className="hover:underline font-semibold" rel="noreferrer">Política de Privacidade</a></Link></p>
                         </div>
-                        <ReCAPTCHA
-                        sitekey="6LeEgT8cAAAAAOSqFg_s8xF6whnSAR6LjUudOiO5"
-                        onChange={onChange}
-                        ref={recaptchaRef}
-                        size="invisible"
-                        />
+
                         <button className="bg-purple bg-opacity-90 hover:bg-opacity-100 text-white font-bold text-15 rounded-full tm:py-6 md:py-13 tm:px-18 md:px-45 outline-none hover:bg-purple hover:text-white hover:shadow-lg transition tm:col-span-6 md:col-span-2"> Cadastrar </button>
                     </div>
                     <p className="text-red text-15"></p>
