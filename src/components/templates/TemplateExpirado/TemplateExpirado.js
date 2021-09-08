@@ -18,7 +18,7 @@ function TemplateExpirado() {
                         <div className="grid grid-cols-1 gap-22">
                             <div>
                                 <Title titulo="Que pena :( Este link está expirado. " extraclass="text-black text-center py-38" />
-                                <Paragraph paragrafo="O link que você tentou acessar, já foi utilizado." extraclass="text-black text-center"/>
+                                <Paragraph paragrafo="O link que você tentou acessar já foi utilizado." extraclass="text-black text-center"/>
                             </div>
                         </div>
                     </div>

@@ -15,7 +15,7 @@ function TemplateThanks() {
                     <div className="md:order-2 tm:order-1">
                         <img src="/img/circle.svg" alt="Obrigado" className="self-center mx-auto pb-38"/>
                         <Title titulo="Obrigado! Sua amostra chegará em breve" extraclass="text-black text-center leading-title"/>
-                        <Paragraph paragrafo="Fique atento no seu e-mail cadastrado, pois o status será atualizado." extraclass="text-black py-38 text-center" />
+                        <Paragraph paragrafo="Fique atento no seu telefone. Você receberá a atualização do status do pedido via SMS." extraclass="text-black py-38 text-center" />
                     </div>
                 </div>
             </section>
