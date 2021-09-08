@@ -7,7 +7,6 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import Link from 'next/link';
 
 function Cadastro({ token }) {
-    const [robo, setRobo] = useState(false)
 
     const router = useRouter()
     const { register, handleSubmit, formState: { errors }, setValue } = useForm({
@@ -46,7 +45,7 @@ function Cadastro({ token }) {
     const validateCaptcha = (response_key) => {
         return new Promise((resolve, reject) => {
             const secret_key = process.env.RECAPTCHA_SECRET_KEY
-            const url = `http://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${response_key}`
+            const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${response_key}`
 
             fetch(url, {
                 method: 'post'
@@ -230,9 +229,7 @@ function Cadastro({ token }) {
                         />
                         <button className="bg-purple bg-opacity-90 hover:bg-opacity-100 text-white font-bold text-15 rounded-full tm:py-6 md:py-13 tm:px-18 md:px-45 outline-none hover:bg-purple hover:text-white hover:shadow-lg transition tm:col-span-6 md:col-span-2"> Cadastrar </button>
                     </div>
-                    <p className="text-red text-15">
-                        {robo ? 'Erro' : 'Sucesso'}
-                    </p>
+                    <p className="text-red text-15"></p>
                 </form>
             </div>
         </section>
