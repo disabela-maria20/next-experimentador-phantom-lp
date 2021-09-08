@@ -7,11 +7,9 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import Link from 'next/link';
 
 function Cadastro({ token }) {
+    const [robo, setRobo] = useState(false)
+
     const router = useRouter()
-    //const [ValidateCep, setValidateCep] = useState(false)
-    //const vcep = useRef()
-
-
     const { register, handleSubmit, formState: { errors }, setValue } = useForm({
         mode: 'onChange'
     });
@@ -39,20 +37,42 @@ function Cadastro({ token }) {
                 setValue('bairro', data.bairro)
             })
     }
+    const recaptchaRef = React.useRef();
 
-    function onChange(value) {
-        console.log("Captcha value:", value);
+    const onSubmitWithReCAPTCHA = async () => {
+        const teste = await recaptchaRef.current.executeAsync();
+        return validateCaptcha(teste)
     }
-    const recaptchaRef = useRef(ReCAPTCHA);
-    <ReCAPTCHA
-        sitekey={process.env.RECAPTCHA_SITE_KEY}
-        onChange={onChange}
-        ref={recaptchaRef}
-        size="invisible"
-    />
+    const validateCaptcha = (response_key) => {
+        return new Promise((resolve, reject) => {
+            const secret_key = process.env.RECAPTCHA_SECRET_KEY
+            const url = `http://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${response_key}`
 
-
+            fetch(url, {
+                method: 'post'
+            })
+                .then((response) => response.json())
+                .then((google_response) => {
+                    console.log(google_response);
+                    if (google_response.success == true) {
+                        resolve(true)
+                    } else {
+                        resolve(false)
+                       // setRobo(true)
+                    }
+                })
+                .catch((err) => {
+                    console.log(err)
+                    resolve(false)
+                })
+        })
+    }
     const onSubmit = async (data) => {
+        onSubmitWithReCAPTCHA()
+        const cep = data.cep.replace(/\D/g, '')
+        const cpf = data.cpf.replace(/[^\d]/g, '')
+        const telefone = data.telefone.replace(/[^\d]/g, '')
+
         await axios.put(`https://api.experimentador.com.br/api/v1/links/${token}`, {}, {
             headers: {
                 "Api-key": process.env.FRONTEND_API_KEY,
@@ -61,9 +81,6 @@ function Cadastro({ token }) {
             }
         })
 
-        const cep = data.cep.replace(/\D/g, '')
-        const cpf = data.cpf.replace(/[^\d]/g, '')
-        const telefone = data.telefone.replace(/[^\d]/g, '')
         try {
             const response = await axios.get("https://api.experimentador.com.br/api/v1/products?name=phantom", {
                 headers: {
@@ -81,10 +98,7 @@ function Cadastro({ token }) {
         } catch (erro) {
             console.log(erro)
         }
-        // const tokenRecaptcha = await recaptchaRef.current.executeAsync();
-        // recaptchaRef.current.reset()
 
-        // console.log(tokenRecaptcha, "token")
         const post = await axios.post('https://api.experimentador.com.br/api/v1/orders', {
             user_name: data.nome,
             email: data.email,
@@ -99,7 +113,6 @@ function Cadastro({ token }) {
             state: data.estado,
             district: data.bairro,
             privacy_policy_authorization: data.aceito,
-            // tokenRecaptcha
         }, {
             headers: {
                 "Api-key": process.env.FRONTEND_API_KEY,
@@ -210,10 +223,16 @@ function Cadastro({ token }) {
                             </div>
                             <p className="text-15 font-normal">Ao informar meus dados, eu concordo com a <Link href="/pacorabanne/politica-de-privacidade"><a className="hover:underline font-semibold" rel="noreferrer">Política de Privacidade</a></Link></p>
                         </div>
-
+                        <ReCAPTCHA
+                            ref={recaptchaRef}
+                            size="invisible"
+                            sitekey={process.env.RECAPTCHA_SITE_KEY}
+                        />
                         <button className="bg-purple bg-opacity-90 hover:bg-opacity-100 text-white font-bold text-15 rounded-full tm:py-6 md:py-13 tm:px-18 md:px-45 outline-none hover:bg-purple hover:text-white hover:shadow-lg transition tm:col-span-6 md:col-span-2"> Cadastrar </button>
                     </div>
-                    <p className="text-red text-15"></p>
+                    <p className="text-red text-15">
+                        {robo ? 'Erro' : 'Sucesso'}
+                    </p>
                 </form>
             </div>
         </section>
