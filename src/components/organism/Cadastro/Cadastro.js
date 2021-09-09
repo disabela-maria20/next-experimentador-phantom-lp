@@ -3,12 +3,24 @@ import React, { useRef, useState } from 'react';
 import axios from 'axios'
 import InputMask from 'react-input-mask';
 import { useRouter } from 'next/router';
-import ReCAPTCHA from 'react-google-recaptcha';
 import Link from 'next/link';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 function Cadastro({ token }) {
-
     const router = useRouter()
+    const captchaRef = useRef(null);
+    const [htoken, setHtoken] = useState(null);
+    //const [ValidateCep, setValidateCep] = useState(false)
+    //const vcep = useRef()
+
+    const onExpire = () => {
+        console.log("hCaptcha Token Expired");
+    };
+
+    const onError = (err) => {
+        console.log(`hCaptcha Error: ${err}`);
+    };
+
     const { register, handleSubmit, formState: { errors }, setValue } = useForm({
         mode: 'onChange'
     });
@@ -36,93 +48,70 @@ function Cadastro({ token }) {
                 setValue('bairro', data.bairro)
             })
     }
-    const recaptchaRef = React.useRef();
 
-    const onSubmitWithReCAPTCHA = async () => {
-        const teste = await recaptchaRef.current.executeAsync();
-        return validateCaptcha(teste)
-    }
-    const validateCaptcha = (response_key) => {
-        return new Promise((resolve, reject) => {
-            const secret_key = process.env.RECAPTCHA_SECRET_KEY
-            const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${response_key}`
 
-            fetch(url, {
-                method: 'post'
-            })
-                .then((response) => response.json())
-                .then((google_response) => {
-                    console.log(google_response);
-                    if (google_response.success == true) {
-                        resolve(true)
-                    } else {
-                        resolve(false)
-                       // setRobo(true)
+    const onSubmit = async (data) => {
+        try {
+            if (await htoken) {
+                captchaRef.current.resetCaptcha()
+
+                const cep = data.cep.replace(/\D/g, '')
+                const cpf = data.cpf.replace(/[^\d]/g, '')
+                const telefone = data.telefone.replace(/[^\d]/g, '')
+                const response = await axios.get("https://api.experimentador.com.br/api/v1/products?name=phantom", {
+                    headers: {
+                        "Api-key": process.env.FRONTEND_API_KEY,
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Credentials": "true"
                     }
                 })
-                .catch((err) => {
-                    console.log(err)
-                    resolve(false)
-                })
-        })
-    }
-    const onSubmit = async (data) => {
-        onSubmitWithReCAPTCHA()
-        const cep = data.cep.replace(/\D/g, '')
-        const cpf = data.cpf.replace(/[^\d]/g, '')
-        const telefone = data.telefone.replace(/[^\d]/g, '')
-
-        await axios.put(`https://api.experimentador.com.br/api/v1/links/${token}`, {}, {
-            headers: {
-                "Api-key": process.env.FRONTEND_API_KEY,
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Credentials": "true"
-            }
-        })
-
-        try {
-            const response = await axios.get("https://api.experimentador.com.br/api/v1/products?name=phantom", {
-                headers: {
-                    "Api-key": process.env.FRONTEND_API_KEY,
-                    "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Credentials": "true"
+                console.log(response.data[0].quantity)
+                if (quantity <= 500) {
+                    router.push('/pacorabanne/finalizado')
+                    return
                 }
-            })
-            console.log(response.data[0].quantity)
-            const quantity = Number(response.data[0].quantity)
-            if (quantity <= 500) {
-                router.push('/pacorabanne/finalizado')
-                return
+
+                const post = await axios.post('https://api.experimentador.com.br/api/v1/orders', {
+                    user_name: data.nome,
+                    email: data.email,
+                    password: '',
+                    phone: telefone,
+                    cep: cep,
+                    cpf: cpf,
+                    house_number: data.numero,
+                    street_name: data.endereco,
+                    complement: data.complemento,
+                    city: data.cidade,
+                    state: data.estado,
+                    district: data.bairro,
+                    privacy_policy_authorization: data.aceito,
+                }, {
+                    headers: {
+                        "Api-key": process.env.FRONTEND_API_KEY,
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Credentials": "true"
+                    }
+                })
+
+                if (post && post.data.data && post.data.data.id) {
+                    await axios.put(`https://api.experimentador.com.br/api/v1/links/${token}`, {}, {
+                        headers: {
+                            "Api-key": process.env.FRONTEND_API_KEY,
+                            "Access-Control-Allow-Origin": "*",
+                            "Access-Control-Allow-Credentials": "true"
+                        }
+                    })
+                    router.push('/pacorabanne/thanks')
+                }
+                else {
+                    console.log(post)
+                }
+            } else {
+                captchaRef.current.execute()
             }
         } catch (erro) {
             console.log(erro)
         }
-
-        const post = await axios.post('https://api.experimentador.com.br/api/v1/orders', {
-            user_name: data.nome,
-            email: data.email,
-            password: '',
-            phone: telefone,
-            cep: cep,
-            cpf: cpf,
-            house_number: data.numero,
-            street_name: data.endereco,
-            complement: data.complemento,
-            city: data.cidade,
-            state: data.estado,
-            district: data.bairro,
-            privacy_policy_authorization: data.aceito,
-        }, {
-            headers: {
-                "Api-key": process.env.FRONTEND_API_KEY,
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Credentials": "true"
-            }
-        })
-            .then(function (response) {
-                router.push('/pacorabanne/thanks')
-            })
-            .catch(err => console.log(err.response))
     }
 
     return (
@@ -222,12 +211,16 @@ function Cadastro({ token }) {
                             </div>
                             <p className="text-15 font-normal">Ao informar meus dados, eu concordo com a <Link href="/pacorabanne/politica-de-privacidade"><a className="hover:underline font-semibold" rel="noreferrer">Política de Privacidade</a></Link></p>
                         </div>
-                        <ReCAPTCHA
-                            ref={recaptchaRef}
-                            size="invisible"
-                            sitekey={process.env.RECAPTCHA_SITE_KEY}
-                        />
+
                         <button className="bg-purple bg-opacity-90 hover:bg-opacity-100 text-white font-bold text-15 rounded-full tm:py-6 md:py-13 tm:px-18 md:px-45 outline-none hover:bg-purple hover:text-white hover:shadow-lg transition tm:col-span-6 md:col-span-2"> Cadastrar </button>
+                        <HCaptcha
+                            sitekey={process.env.RECAPTCHA_SITE_KEY}
+                            size="invisible"
+                            onError={onError}
+                            onExpire={onExpire}
+                            onVerify={setHtoken}
+                            ref={captchaRef}
+                        />
                     </div>
                     <p className="text-red text-15"></p>
                 </form>
