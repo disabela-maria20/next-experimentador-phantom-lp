@@ -65,8 +65,7 @@ function Cadastro({ token }) {
                         "Access-Control-Allow-Credentials": "true"
                     }
                 })
-                console.log(response.data[0].quantity)
-                if (quantity <= 500) {
+                if (response.data[0].quantity <= 500) {
                     router.push('/pacorabanne/finalizado')
                     return
                 }
