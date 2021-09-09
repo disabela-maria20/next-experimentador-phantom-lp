@@ -48,15 +48,19 @@ function Cadastro({ token }) {
         const cep = value?.replace(/[^0-9]/g, '')
 
         if (cep?.length !== 8) {
-            return;
+            return
         }
 
         fetch(`https://viacep.com.br/ws/${cep}/json/`)
             .then((res) => res.json())
             .then((data) => {
                 if (data && !data.logradouro) {
-                    //vcep.current.onKeyup(()=> {
-                    //setValidateCep(true)})
+                    setErrorMessage({
+                        title: 'Erro',
+                        message: 'CEP não encontrado.',
+                    })
+                    setOpen(true)
+                    return
                 }
                 setValue('endereco', data.logradouro)
                 setValue('cidade', data.localidade)
@@ -88,6 +92,17 @@ function Cadastro({ token }) {
                 /* Vefica quantidade de produto no stock */
                 if (product.quantity <= 500) {
                     router.push('/pacorabanne/finalizado')
+                    return
+                }
+
+                const checkCep = await axios.get(`https://viacep.com.br/ws/${cep}/json/`)
+
+                if (checkCep.data && !checkCep.data.logradouro) {
+                    setErrorMessage({
+                        title: 'Erro',
+                        message: 'CEP não encontrado.',
+                    })
+                    setOpen(true)
                     return
                 }
 
