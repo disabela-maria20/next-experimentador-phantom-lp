@@ -5,20 +5,37 @@ import InputMask from 'react-input-mask';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
+import ModalMessage from '../../molecule/Modal/ModalMessage';
 
 function Cadastro({ token }) {
     const router = useRouter()
     const captchaRef = useRef(null);
     const [htoken, setHtoken] = useState(null);
+    const [open, setOpen] = React.useState(false);
+    const [errorMessage, setErrorMessage] = useState({
+        title: '',
+        message: '',
+    });
+
     //const [ValidateCep, setValidateCep] = useState(false)
     //const vcep = useRef()
 
+    /* HCaptcha */
     const onExpire = () => {
-        console.log("hCaptcha Token Expired");
+        setErrors({
+            title: 'Erro',
+            message: 'O captcha está expirado, por favor, tente novamente.',
+        })
+        setOpen(true)
     };
 
+    /* HCaptcha */
     const onError = (err) => {
-        console.log(`hCaptcha Error: ${err}`);
+        setErrors({
+            title: 'Erro',
+            message: 'O captcha está incorreto, por favor, tente novamente.',
+        })
+        setOpen(true)
     };
 
     const { register, handleSubmit, formState: { errors }, setValue } = useForm({
@@ -29,7 +46,6 @@ function Cadastro({ token }) {
         const { value } = e.target
 
         const cep = value?.replace(/[^0-9]/g, '')
-
 
         if (cep?.length !== 8) {
             return;
@@ -49,27 +65,33 @@ function Cadastro({ token }) {
             })
     }
 
-
     const onSubmit = async (data) => {
         try {
+            /* Verifica se o captcha foi preenchido */
             if (await htoken) {
                 captchaRef.current.resetCaptcha()
 
                 const cep = data.cep.replace(/\D/g, '')
                 const cpf = data.cpf.replace(/[^\d]/g, '')
                 const telefone = data.telefone.replace(/[^\d]/g, '')
-                const response = await axios.get("https://api.experimentador.com.br/api/v1/products?name=phantom", {
+
+                /* Busca produto da API */
+                const response = await axios.get(`https://api.experimentador.com.br/api/v1/products?name=${'phantom'}`, {
                     headers: {
                         "Api-key": process.env.FRONTEND_API_KEY,
                         "Access-Control-Allow-Origin": "*",
                         "Access-Control-Allow-Credentials": "true"
                     }
                 })
-                if (response.data[0].quantity <= 500) {
+                const product = response.data && response.data[0]
+
+                /* Vefica quantidade de produto no stock */
+                if (product.quantity <= 500) {
                     router.push('/pacorabanne/finalizado')
                     return
                 }
 
+                /* Cria um pedio, usuário e subtrai um produto */
                 const post = await axios.post('https://api.experimentador.com.br/api/v1/orders', {
                     user_name: data.nome,
                     email: data.email,
@@ -102,14 +124,89 @@ function Cadastro({ token }) {
                     })
                     router.push('/pacorabanne/thanks')
                 }
+                /*  Se não tiver o id, então não foi possível cadastrar o usuário */
                 else {
-                    console.log(post)
+                    if (post.data && post.data.constraint === "users_cpf_unique") {
+                        setErrorMessage({
+                            title: 'Erro',
+                            message: 'Este CPF já está cadastrado.',
+                        })
+                        setOpen(true)
+                    }
+                    else if (post.data && post.data.constraint === "users_phone_unique") {
+                        setErrorMessage({
+                            title: 'Erro',
+                            message: 'O telefone cadastrado já existe.',
+                        })
+                        setOpen(true)
+                    }
+                    else if (post.data && post.data.constraint === "users_email_unique") {
+                        setErrorMessage({
+                            title: 'Erro',
+                            message: 'Este e-mail já está cadastrado.',
+                        })
+                        setOpen(true)
+                    }
+                    else if (post.data && post.data.message === 'User already have an order') {
+                        setErrorMessage({
+                            title: 'Erro',
+                            message: 'Usuário já realizou um pedido.',
+                        })
+                        setOpen(true)
+                    }
                 }
-            } else {
+            }
+            /*  Se não tiver o token, então captcha ainda não foi preenchido */
+            else {
                 captchaRef.current.execute()
             }
-        } catch (erro) {
-            console.log(erro)
+        }
+        catch (erro) {
+            if (erro.response && erro.response.data.message === 'User already have an order') {
+                setErrorMessage({
+                    title: 'Erro ❗️',
+                    message: 'O email inserido já existe',
+                })
+                setOpen(true)
+                return
+            } else if (erro.response && erro.response.data.errors[0].field === 'email') {
+                setErrorMessage({
+                    title: 'Erro no e-mail❗️',
+                    message: 'Verifique se o e-mail foi digitado corretamente.',
+                })
+                setOpen(true)
+                return
+            }
+            else if (erro.response && erro.response.data.errors[0].field === 'phone') {
+                setErrorMessage({
+                    title: 'Erro no telefone❗️',
+                    message: 'Verifique se o telefone foi digitado corretamente.',
+                })
+                setOpen(true)
+                return
+            }
+            else if (erro.response && erro.response.data.errors[0].field === 'cpf') {
+                setErrorMessage({
+                    title: 'Erro no CPF',
+                    message: 'Verifique se o CPF foi digitado corretamente.',
+                })
+                setOpen(true)
+                return
+            }
+            else if (erro.response && erro.response.data.errors[0].field === 'cep') {
+                setErrorMessage({
+                    title: 'Erro no CEP',
+                    message: 'Verifique se o CEP foi digitado corretamente.',
+                })
+                setOpen(true)
+                return
+            }
+
+            setErrorMessage({
+                title: 'Erro ❗️',
+                message: 'Ocorreu algum erro',
+            })
+            setOpen(true)
         }
     }
 
@@ -211,6 +308,7 @@ function Cadastro({ token }) {
                             <p className="text-15 font-normal">Ao informar meus dados, eu concordo com a <Link href="/pacorabanne/politica-de-privacidade"><a className="hover:underline font-semibold" rel="noreferrer">Política de Privacidade</a></Link></p>
                         </div>
 
+                        {/* Botão de cadastro */}
                         <button className="bg-purple bg-opacity-90 hover:bg-opacity-100 text-white font-bold text-15 rounded-full tm:py-6 md:py-13 tm:px-18 md:px-45 outline-none hover:bg-purple hover:text-white hover:shadow-lg transition tm:col-span-6 md:col-span-2"> Cadastrar </button>
                         <HCaptcha
                             sitekey={process.env.RECAPTCHA_SITE_KEY}
@@ -224,6 +322,13 @@ function Cadastro({ token }) {
                     <p className="text-red text-15"></p>
                 </form>
             </div>
+            {/* modal de aviso */}
+            <ModalMessage
+                open={open}
+                setOpen={setOpen}
+                title={errorMessage.title}
+                message={errorMessage.message}
+            ></ModalMessage>
         </section>
     )
 }
