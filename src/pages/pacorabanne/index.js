@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import { NextSeo, ArticleJsonLd } from 'next-seo'
 import TemplateHome from '../../components/templates/TemplateHome/TemplateHome'
 import axios from 'axios'
 import { useRouter } from 'next/router'
@@ -8,31 +8,36 @@ export default function Home() {
 
 	return (
 		<>
-			<Head>
-				<meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-				<meta name="language" content="pt-BR" />
-				<meta name='viewport' content='width=device-width, initial-scale=1' />
-				<link rel="shortcut icon" href="favicon144.png" />
-				<meta name="title" content="Phantom by Paco Rabanne | Experimentador" />
-				<meta name="description" content="Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas." />
+			<NextSeo
+			title="Phantom by Paco Rabanne | Experimentador"
+			description="Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas."
+			canonical="https://experimentador.com.br/pacorabanne"
+			openGraph={{
+					url: 'https://experimentador.com.br/pacorabanne',
+					title: 'Phantom by Paco Rabanne | Experimentador',
+					description: 'Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas.',
+					images: [
+						{
+							url: 'https://experimentador.com.br/pacorabanne/img/phantom-section-voice.jpg',
+							alt: 'Phantom by Paco Rabanne',
+						},
+					],
+					site_name: 'Phantom by Paco Rabanne | Experimentador'
+			}}
+			twitter={{
+				handle: '@handle',
+				site: '@site',
+				cardType: 'summary_large_image'
 
-
-				<title>Phantom by Paco Rabanne | Experimentador</title>
-
-				<meta property="og:type" content="page" />
-				<meta property="og:url" content="thanks" />
-				<meta property="og:title" content="Phantom by Paco Rabanne | Experimentador" />
-				<meta property="og:image" content="favicon144.png" />
-				<meta property="og:description" content="Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas." />
-
-				<meta property="article:author" content="Experimentador" />
-
-				<meta name="twitter:card" content="summary" />
-				<meta name="twitter:site" content="@" />
-				<meta name="twitter:title" content="Phantom by Paco Rabanne | Experimentador" />
-				<meta name="twitter:creator" content="@" />
-				<meta name="twitter:description" content="Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas." />
-			</Head>
+			}}	
+			/>
+			<ArticleJsonLd
+			url="https://experimentador.com.br/pacorabanne"
+			title="Phantom by Paco Rabanne | Experimentador"
+			publisherName="Experimentador"
+			publisherLogo="https://experimentador.com.br/pacorabanne/favicon144.png"
+			description="Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas."
+			/>
 			<TemplateHome />
 		</>
 	)
