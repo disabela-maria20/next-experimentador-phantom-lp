@@ -7,20 +7,19 @@ function politicadeprivacidade() {
     return (
         <>
           <NextSeo
-			title="Política de Privacidade | Phantom by Paco Rabanne | Experimentador"
-			description="Leia com atenção a nossa página de Política de Privacidade do Experimentador."
-			canonical="https://experimentador.com.br/pacorabanne"
+			title="Política de Privacidade | Phantom by paco rabanne | experimentador"
+			description="Leia com atenção a nossa página de Política de Privacidade do experimentador."
 			openGraph={{
 					url: 'https://experimentador.com.br/pacorabanne/politica-de-privacidade',
-					title: 'Política de Privacidade | Phantom by Paco Rabanne | Experimentador',
-					description: 'Leia com atenção a nossa página de Política de Privacidade do Experimentador.',
+					title: 'Política de Privacidade | Phantom by paco rabanne | experimentador',
+					description: 'Leia com atenção a nossa página de Política de Privacidade do experimentador.',
 					images: [
 						{
-							url: 'https://experimentador.com.br/pacorabanne/img/phantom-section-voice.jpg',
-							alt: 'Phantom by Paco Rabanne',
+							url: '/img/phantom-share.jpg',
+							alt: 'Phantom by paco rabanne',
 						},
 					],
-					site_name: 'Política de Privacidade | Phantom by Paco Rabanne | Experimentador'
+					site_name: 'Política de Privacidade | Phantom by paco rabanne | experimentador'
 			}}
 			twitter={{
 				handle: '@handle',
@@ -32,10 +31,10 @@ function politicadeprivacidade() {
 			/>
 			<ArticleJsonLd
 			url="https://experimentador.com.br/pacorabanne/politica-de-privacidade"
-			title="Política de Privacidade | Phantom by Paco Rabanne | Experimentador"
-			publisherName="Experimentador"
+			title="Política de Privacidade | Phantom by paco rabanne | experimentador"
+			publisherName="experimentador"
 			publisherLogo="https://experimentador.com.br/pacorabanne/favicon144.png"
-			description="Leia com atenção a nossa página de Política de Privacidade do Experimentador."
+			description="Leia com atenção a nossa página de Política de Privacidade do experimentador."
 			/>
             <Navbar />
             <TemplatePolitica />

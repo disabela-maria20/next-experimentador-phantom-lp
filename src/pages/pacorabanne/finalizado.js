@@ -5,20 +5,19 @@ function finalizado() {
     return (
         <>
         	<NextSeo
-			title="Poxa, acabaram as amostras :( Phantom by Paco Rabanne | Experimentador"
-			description="Mas temos uma surpresa para você. Na compra do perfume Phantom, nos tamanhos de 50 ou 100 ml na Beleza na Web, você ganhará uma miniatura do perfume. Informe seu e-mail e desbloqueie seu cupom."
-			canonical="https://experimentador.com.br/pacorabanne"
+			title="Poxa, acabaram as amostras :( Phantom by paco rabanne | experimentador"
+			description="Na compra do perfume Phantom, nos tamanhos de 50 ou 100 ml, você ganhará uma miniatura do perfume. Informe seu e-mail e desbloqueie seu cupom."
 			openGraph={{
 					url: 'https://experimentador.com.br/pacorabanne/finalizado',
-					title: 'Poxa, acabaram as amostras :( Phantom by Paco Rabanne | Experimentador',
-					description: 'Mas temos uma surpresa para você. Na compra do perfume Phantom, nos tamanhos de 50 ou 100 ml na Beleza na Web, você ganhará uma miniatura do perfume. Informe seu e-mail e desbloqueie seu cupom.',
+					title: 'Poxa, acabaram as amostras :( Phantom by paco rabanne | experimentador',
+					description: 'Na compra do perfume Phantom, nos tamanhos de 50 ou 100 ml, você ganhará uma miniatura do perfume. Informe seu e-mail e desbloqueie seu cupom.',
 					images: [
 						{
-							url: 'https://experimentador.com.br/pacorabanne/img/phantom-section-voice.jpg',
-							alt: 'Phantom by Paco Rabanne',
+							url: '/img/phantom-share.jpg',
+							alt: 'Phantom by paco rabanne',
 						},
 					],
-					site_name: 'Poxa, acabaram as amostras :( Phantom by Paco Rabanne | Experimentador'
+					site_name: 'Poxa, acabaram as amostras :( Phantom by paco rabanne | experimentador'
 			}}
 			twitter={{
 				handle: '@handle',
@@ -29,10 +28,10 @@ function finalizado() {
 			/>
 			<ArticleJsonLd
 			url="https://experimentador.com.br/pacorabanne/finalizado"
-			title="Poxa, acabaram as amostras :(  Phantom by Paco Rabanne | Experimentador"
-			publisherName="Experimentador"
+			title="Poxa, acabaram as amostras :(  Phantom by paco rabanne | experimentador"
+			publisherName="experimentador"
 			publisherLogo="https://experimentador.com.br/pacorabanne/favicon144.png"
-			description="Mas temos uma surpresa para você. Na compra do perfume Phantom, nos tamanhos de 50 ou 100 ml na Beleza na Web, você ganhará uma miniatura do perfume. Informe seu e-mail e desbloqueie seu cupom."
+			description="Na compra do perfume Phantom, nos tamanhos de 50 ou 100 ml, você ganhará uma miniatura do perfume. Informe seu e-mail e desbloqueie seu cupom."
 			/>
             <TemplateFinalizado />
         </>

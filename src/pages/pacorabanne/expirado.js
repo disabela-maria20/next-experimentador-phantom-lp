@@ -5,20 +5,19 @@ const expirado = () => {
     return (
         <div>
             <NextSeo
-			title="Link expirado | Phantom by Paco Rabanne | Experimentador"
-			description="Infelizmente o link q ue está tentando acessar está expirado."
-			canonical="https://experimentador.com.br/pacorabanne"
+			title="Link expirado | Phantom by paco rabanne | experimentador"
+			description="Infelizmente o link que está tentando acessar está expirado."
 			openGraph={{
 					url: 'https://experimentador.com.br/pacorabanne/expirado',
-					title: 'Link Expirado | Phantom by Paco Rabanne | Experimentador',
+					title: 'Link Expirado | Phantom by paco rabanne | experimentador',
 					description: 'Infelizmente o link que está tentando acessar está expirado.',
 					images: [
 						{
-							url: 'https://experimentador.com.br/pacorabanne/img/phantom-section-voice.jpg',
-							alt: 'Phantom by Paco Rabanne',
+							url: '/img/phantom-share.jpg',
+							alt: 'Phantom by paco rabanne',
 						},
 					],
-					site_name: 'Link expirado | Phantom by Paco Rabanne | Experimentador'
+					site_name: 'Link expirado | Phantom by paco rabanne | experimentador'
 			}}
 			twitter={{
 				handle: '@handle',
@@ -30,10 +29,10 @@ const expirado = () => {
 			/>
 			<ArticleJsonLd
 			url="https://experimentador.com.br/pacorabanne/expirado"
-			title="Link expirado | Phantom by Paco Rabanne | Experimentador"
-			publisherName="Experimentador"
+			title="Link expirado | Phantom by paco rabanne | experimentador"
+			publisherName="experimentador"
 			publisherLogo="https://experimentador.com.br/pacorabanne/favicon144.png"
-			description="Infelizmente o link q ue está tentando acessar está expirado."
+			description="Infelizmente o link que está tentando acessar está expirado."
 			/>
             <TemplateExpirado />
         </div>

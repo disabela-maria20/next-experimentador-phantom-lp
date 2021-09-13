@@ -9,20 +9,20 @@ export default function Home() {
 	return (
 		<>
 			<NextSeo
-			title="Phantom by Paco Rabanne | Experimentador"
-			description="Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas."
+			title="Amostra Phantom by paco rabanne | experimentador"
+			description="Peça uma Amostra Grátis pelo Google Assistente ou Alexa e receba em sua casa. Campanha ativa até durarem nossos estoques."
 			canonical="https://experimentador.com.br/pacorabanne"
 			openGraph={{
 					url: 'https://experimentador.com.br/pacorabanne',
-					title: 'Phantom by Paco Rabanne | Experimentador',
-					description: 'Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas.',
+					title: 'Amostra Phantom by paco rabanne | experimentador',
+					description: 'Peça uma Amostra Grátis pelo Google Assistente ou Alexa e receba em sua casa. Campanha ativa até durarem nossos estoques.',
 					images: [
 						{
-							url: 'https://experimentador.com.br/pacorabanne/img/phantom-section-voice.jpg',
-							alt: 'Phantom by Paco Rabanne',
+							url: '/img/phantom-share.jpg',
+							alt: 'Phantom by paco rabanne',
 						},
 					],
-					site_name: 'Phantom by Paco Rabanne | Experimentador'
+					site_name: 'Amostra Phantom by paco rabanne | experimentador'
 			}}
 			twitter={{
 				handle: '@handle',
@@ -33,10 +33,10 @@ export default function Home() {
 			/>
 			<ArticleJsonLd
 			url="https://experimentador.com.br/pacorabanne"
-			title="Phantom by Paco Rabanne | Experimentador"
+			title="Amostra Phantom by paco rabanne | experimentador"
 			publisherName="Experimentador"
 			publisherLogo="https://experimentador.com.br/pacorabanne/favicon144.png"
-			description="Phantom, a nova fragrância masculina de Paco Rabanne. A essência da autoconfiança movida por energias positivas."
+			description="Peça uma Amostra Grátis pelo Google Assistente ou Alexa e receba em sua casa. Campanha ativa até durarem nossos estoques."
 			/>
 			<TemplateHome />
 		</>

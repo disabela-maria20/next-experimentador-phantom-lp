@@ -5,20 +5,19 @@ function finalizadothanks() {
     return (
         <>
         <NextSeo
-			title="Obrigado! | Phantom by Paco Rabanne | Experimentador"
+			title="Obrigado! | Phantom by paco rabanne | experimentador"
 			description="Aproveite o cupom e faça a compra em nossa loja parceira e receba uma surpresa em casa."
-			canonical="https://experimentador.com.br/pacorabanne"
 			openGraph={{
 					url: 'https://experimentador.com.br/pacorabanne/finalizado-thanks',
-					title: 'Obrigado ! | Phantom by Paco Rabanne | Experimentador',
+					title: 'Obrigado ! | Phantom by paco rabanne | experimentador',
 					description: 'Aproveite o cupom e faça a compra em nossa loja parceira e receba uma surpresa em casa.',
 					images: [
 						{
-							url: 'https://experimentador.com.br/pacorabanne/img/phantom-section-voice.jpg',
-							alt: 'Phantom by Paco Rabanne',
+							url: '/img/phantom-share.jpg',
+							alt: 'Phantom by paco rabanne',
 						},
 					],
-					site_name: 'Obrigado! | Phantom by Paco Rabanne | Experimentador'
+					site_name: 'Obrigado! | Phantom by paco rabanne | experimentador'
 			}}
 			twitter={{
 				handle: '@handle',
@@ -31,8 +30,8 @@ function finalizadothanks() {
 			/>
 			<ArticleJsonLd
 			url="https://experimentador.com.br/pacorabanne/finalizado-thanks"
-			title="Obrigado! |  Phantom by Paco Rabanne | Experimentador"
-			publisherName="Experimentador"
+			title="Obrigado! |  Phantom by paco rabanne | experimentador"
+			publisherName="experimentador"
 			publisherLogo="https://experimentador.com.br/pacorabanne/favicon144.png"
 			description="Aproveite o cupom e faça a compra em nossa loja parceira e receba uma surpresa em casa."
 			/>

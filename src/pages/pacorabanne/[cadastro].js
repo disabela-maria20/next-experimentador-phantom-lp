@@ -41,20 +41,19 @@ export default function CadastroHash() {
     return (
         <>
             <NextSeo
-			title="Cadastro | Phantom by Paco Rabanne | Experimentador"
-			description="Cadastre para receber sua amostra Phantom by Paco Rabanne em sua casa."
-			canonical="https://experimentador.com.br/pacorabanne"
+			title="Cadastro | Phantom by paco rabanne | experimentador"
+			description="Cadastre para receber sua amostra Phantom by paco rabanne em sua casa."
 			openGraph={{
 					url: 'https://experimentador.com.br/pacorabanne/expirado',
-					title: 'Cadastro | Phantom by Paco Rabanne | Experimentador',
-					description: 'Cadastre para receber sua amostra Phantom by Paco Rabanne em sua casa.',
+					title: 'Cadastro | Phantom by paco rabanne | experimentador',
+					description: 'Cadastre para receber sua amostra Phantom by paco rabanne em sua casa.',
 					images: [
 						{
-							url: 'https://experimentador.com.br/pacorabanne/img/phantom-section-voice.jpg',
-							alt: 'Phantom by Paco Rabanne',
+							url: '/img/phantom-share.jpg',
+							alt: 'Phantom by paco rabanne',
 						},
 					],
-					site_name: 'Cadastro | Phantom by Paco Rabanne | Experimentador'
+					site_name: 'Cadastro | Phantom by paco rabanne | experimentador'
 			}}
 			twitter={{
 				handle: '@handle',
@@ -63,14 +62,13 @@ export default function CadastroHash() {
 
 			}}
             noindex={true}
-            nofollow={true}
 			/>
 			<ArticleJsonLd
 			url={`https://experimentador.com.br/pacorabanne/${cadastro}`}
-			title="Cadastro | Phantom by Paco Rabanne | Experimentador"
-			publisherName="Experimentador"
+			title="Cadastro | Phantom by paco rabanne | experimentador"
+			publisherName="experimentador"
 			publisherLogo="https://experimentador.com.br/pacorabanne/favicon144.png"
-			description="Cadastre para receber sua amostra Phantom by Paco Rabanne em sua casa."
+			description="Cadastre para receber sua amostra Phantom by paco rabanne em sua casa."
 			/>
             <TemplateCadastro token={cadastro} />
         </>
