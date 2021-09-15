@@ -2,6 +2,7 @@ import 'tailwindcss/tailwind.css'
 import '../../styles/globals.css'
 import CookieConsent from 'react-cookie-consent'
 import Head from 'next/head'
+import Link from 'next/link'
 
 
 function MyApp({ Component, pageProps }) {
@@ -28,9 +29,9 @@ function MyApp({ Component, pageProps }) {
       fontWeight: "regular",
       textTransform: "uppercase",
   }}
-  debug={true}
-  expires={999} overlay>
-      Este site usa cookies de terceiros para elevar a experiência do usuário.
+  expires={999} 
+  overlay>
+      Este site usa cookies de terceiros para elevar a experiência do usuário. Confira nossa <Link href="/pacorabanne/politica-de-privacidade"><a className="hover:underline">Política de Privacidade</a></Link>.
   </CookieConsent>
   </>
   )
