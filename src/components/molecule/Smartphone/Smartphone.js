@@ -84,10 +84,10 @@ const Smartphone = () => {
                 :
                 <article>
                     <div className="grid grid-cols-2 gap-18 py-26">
-                        <div className="pl-45">
+                        <div className="tm:pl-22 md:pl-45">
                             <Link href="https://apps.apple.com/br/app/amazon-alexa/id944011620"><a target="_blank"><img src="/img/app_store.svg" alt="Download na App Store da Apple" /></a></Link>
                         </div>
-                        <div className="pr-45">
+                        <div className="tm:pr-22 md:pr-45">
                             <Link href="https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=pt_BR&gl=US"><a target="_blank"><img src="/img/google_play.svg" alt="Download na Google Play do Android" /></a></Link>
                         </div>
                     </div>

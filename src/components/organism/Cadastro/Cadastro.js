@@ -121,6 +121,8 @@ function Cadastro({ token }) {
                     state: data.estado,
                     district: data.bairro,
                     privacy_policy_authorization: data.aceito,
+                    come_of_age: data.maior,
+                    brand_accept: data.autorizo,
                 }, {
                     headers: {
                         "Api-key": process.env.FRONTEND_API_KEY,
