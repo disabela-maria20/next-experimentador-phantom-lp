@@ -47,7 +47,7 @@ function TemplatePerguntas() {
                     </p>
                 </Collapsible>
                 <Collapsible trigger="Quanto tempo demora para receber uma amostra no Experimentador?" className="border-b border-grey-200 py-18" openedClassName="border-b border-purple-200 py-18" triggerClassName="py-18 md:text-26 tm:text-18  text-black w-full" triggerOpenedClassName="py-18 md:text-26 tm:text-18  text-purple w-full" >
-                    <p className="py-18">Para amostras enviadas pelos Correios em campanhas que não sejam para retirada em lojas parceiras, os prazos são: Centro oeste em até 7 dias úteis, São Paulo até 3 dias úteis, Extremo Sul | Nordeste até 12 dias úteis e Norte | Acre ate 20 dias úteis.</p>
+                    <p className="py-18">Para amostras enviadas pelos Correios em campanhas que não sejam para retirada em lojas parceiras, os prazos são: Centro oeste em até 7 dias úteis, São Paulo até 3 dias úteis, Extremo Sul / Nordeste até 12 dias úteis e Norte / Acre ate 20 dias úteis.</p>
                 </Collapsible>
             </ContainerParagraph>
         </>
