@@ -50,7 +50,7 @@ const Smartphone = () => {
                         </div>
                         <div className="ml-10">
                             <p className="text-15 md:text-18 text-black">Abra o app, habilite o microfone e diga a seguinte frase de invocação para ser atendido:</p>
-                            <p className="text-purple  bg-purple-200 p-15 rounded mt-15 text-15 md:text-18">Ok, Google. Falar com Experimentador.</p>
+                            <p className="text-purple  bg-purple-200 p-15 rounded mt-15 text-15 md:text-18">Ok, Google. Falar com o Experimentador.</p>
                         </div>
                     </div>
                     <div className="py-15 grid-col-50-100">
