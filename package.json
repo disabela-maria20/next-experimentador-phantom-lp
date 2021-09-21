@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^0.3.7",
+    "@justinribeiro/lite-youtube": "^0.9.1",
     "axios": "^0.21.1",
     "next": "11.1.2",
     "next-seo": "^4.26.0",
@@ -22,6 +23,8 @@
     "react-gtm-module": "^2.0.11",
     "react-hook-form": "^7.14.2",
     "react-input-mask": "^2.0.4",
+    "react-lite-youtube-embed": "^2.0.12",
+    "react-lite-yt-embed": "^1.2.7",
     "react-player": "^2.9.0"
   },
   "devDependencies": {

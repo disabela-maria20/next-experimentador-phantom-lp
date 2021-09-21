@@ -21,6 +21,8 @@ const Conversao = () => {
         axios.post('https://api.experimentador.com.br/api/v1/users', {
         email: data.email,
         privacy_policy_authorization: data.aceito,
+        brand_accept: data.autorizo,
+        come_of_age: data.maior,
     },
     {
         headers: {
@@ -31,9 +33,7 @@ const Conversao = () => {
         }
 })
         .then(function (response) {
-            console.log(response);
             router.push('/pacorabanne/finalizado-thanks')
-
         })
         .catch(err => console.log(err.response));
     }
@@ -56,7 +56,7 @@ const Conversao = () => {
                     {errors.maior && <span className="md:text-13 tm:text-10 text-red leading-title">{errors.maior.message}</span>}
                 </div>
                 <div>
-                    <input {...register('autorizo', { required: "Este campo é obrigatório" })} type="checkbox" id="autorizo" name="autorizo" value="true" />
+                    <input {...register('autorizo')} type="checkbox" id="autorizo" name="autorizo" value="true" />
                     <label htmlFor="autorizo" className="text-13 text-white font-normal"> Autorizo receber materiais da marca.</label>
                     {errors.autorizo && <span className="md:text-13 tm:text-10 text-red leading-title">{errors.autorizo.message}</span>}
                 </div>
