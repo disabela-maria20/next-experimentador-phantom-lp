@@ -106,7 +106,7 @@ function Cadastro({ token }) {
                     return
                 }
 
-                /* Cria um pedio, usuário e subtrai um produto */
+                /* Cria um pedido, usuário e subtrai um produto */
                 const post = await axios.post('https://api.experimentador.com.br/api/v1/orders', {
                     user_name: data.nome,
                     email: data.email,
@@ -131,6 +131,7 @@ function Cadastro({ token }) {
                     }
                 })
 
+                // se houve id, então foi criado um pedido
                 if (post && post.data.data && post.data.data.id) {
                     await axios.put(`https://api.experimentador.com.br/api/v1/links/${token}`, {}, {
                         headers: {
