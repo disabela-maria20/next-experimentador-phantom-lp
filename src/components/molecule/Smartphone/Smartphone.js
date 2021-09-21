@@ -59,7 +59,7 @@ const Smartphone = () => {
                         </div>
                         <div className="ml-10">
                             <p className="text-15 md:text-18 text-black">Para continuar, informe o seu telefone com o DDD: </p>
-                            <p className="text-purple  bg-purple-200 p-15 rounded mt-15 text-15 md:text-18">O meu telefone é (21) 9999-9999</p>
+                            <p className="text-purple  bg-purple-200 p-15 rounded mt-15 text-15 md:text-18">O meu telefone é (21) 99999-9999</p>
                         </div>
                     </div>
                     <div className="py-15 grid-col-50-100">
@@ -114,7 +114,7 @@ const Smartphone = () => {
                         </div>
                         <div className="ml-10">
                             <p className="text-15 md:text-18 text-black">Para continuar, informe o seu telefone com o DDD: </p>
-                            <p className="text-purple  bg-purple-200 p-15 rounded mt-15 text-15 md:text-18">O meu telefone é: (21) 9999-9999</p>
+                            <p className="text-purple  bg-purple-200 p-15 rounded mt-15 text-15 md:text-18">O meu telefone é: (21) 99999-9999</p>
                         </div>
                     </div>
                     <div className="py-15 grid-col-50-100">
