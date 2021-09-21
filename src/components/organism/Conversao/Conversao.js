@@ -14,28 +14,28 @@ const Conversao = () => {
 
     function onChange(value) {
         console.log("Captcha value:", value);
-      }
+    }
     const recaptchaRef = React.useRef()
 
     const onSubmit = (data) => {
         axios.post('https://api.experimentador.com.br/api/v1/users', {
-        email: data.email,
-        privacy_policy_authorization: data.aceito,
-        brand_accept: data.autorizo,
-        come_of_age: data.maior,
-    },
-    {
-        headers: {
-            "Api-key": process.env.FRONTEND_API_KEY,
-            "Access-Control-Allow-Origin": "https://api.experimentador.com.br",
-            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, HEAD, OPTIONS",
-            "Access-Control-Allow-Credentials": "true"
-        }
-})
-        .then(function (response) {
-            router.push('/pacorabanne/finalizado-thanks')
-        })
-        .catch(err => console.log(err.response));
+            email: data.email,
+            privacy_policy_authorization: data.aceito,
+            brand_accept: data.autorizo,
+            come_of_age: data.maior,
+        },
+            {
+                headers: {
+                    "Api-key": process.env.FRONTEND_API_KEY,
+                    "Access-Control-Allow-Origin": "https://api.experimentador.com.br",
+                    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, HEAD, OPTIONS",
+                    "Access-Control-Allow-Credentials": "true"
+                }
+            })
+            .then(function (response) {
+                router.push('/pacorabanne/finalizado-thanks')
+            })
+            .catch(err => console.log(err.response));
     }
 
     return (
@@ -62,12 +62,12 @@ const Conversao = () => {
                 </div>
                 <p className="text-13 font-normal text-white">Ao informar meus dados, eu concordo com a <Link href="/politica-de-privacidade"><a className="hover:underline font-semibold">Política de Privacidade</a></Link></p>
                 <div className="flex w-1/2 pt-26">
-                        <ReCAPTCHA
+                    <ReCAPTCHA
                         sitekey="6LeEgT8cAAAAAOSqFg_s8xF6whnSAR6LjUudOiO5"
                         onChange={onChange}
                         ref={recaptchaRef}
                         size="invisible"
-                        />
+                    />
                     <button className="bg-purple bg-opacity-90 hover:bg-opacity-100 text-white text-18 rounded-full tm:py-13 md:py-13 tm:px-18 md:px-45 w-full outline-none hover:bg-purple hover:text-white hover:shadow-lg transition tm:col-span-6 md:col-span-2"> Desbloquear </button>
                 </div>
             </form>
