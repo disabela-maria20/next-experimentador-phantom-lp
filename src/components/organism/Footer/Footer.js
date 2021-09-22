@@ -6,13 +6,13 @@ function Footer() {
             <div className="container mx-auto">
                 <div className="grid grid-cols-3 h-full justify-items-center items-center place-content-center">
                     <div>
-                        <img src="/img/logo-paco.png" alt="Paco Rabanne" width="160px"/>
+                        <img src="/img/webp/logo-paco.webp" alt="Paco Rabanne" width="160px"/>
                     </div>
                     <div>
-                        <img src="/img/logo-experimentador.png" alt="Experimentador" width="160px"/>
+                        <img src="/img/webp/logo-experimentador.webp" alt="Experimentador" width="160px"/>
                     </div>
                     <div>
-                        <img src="/img/logo-adventures.png" alt="Adventures" width="160px"/>
+                        <img src="/img/webp/logo-adventures.webp" alt="Adventures" width="160px"/>
                     </div>
                 </div>
                 <div className="grid grid-cols-1 pt-38">

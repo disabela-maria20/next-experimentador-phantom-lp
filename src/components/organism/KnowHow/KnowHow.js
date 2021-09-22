@@ -21,7 +21,7 @@ function KnowHow() {
                 <div className="tm:container mx-auto grid grid-cols-1 px-15 md:grid-cols-2 md:gap-95 tm:gap-38">
                     <div className="order-1 md:order-2">
 
-                        <img src="/img/robo-estilo.png" alt="Phantom by Paco Rabanne" className="md:w-auto tm:w-3/6 mx-auto tm:pb-18" />
+                        <img src="/img/webp/robo-estilo.webp" alt="Phantom by Paco Rabanne" className="md:w-auto tm:w-3/6 mx-auto tm:pb-18" />
                     </div>
                     <div className="order-1 md:order-2">
                     <Title titulo="Peça já uma amostra" extraclass="text-black" />
@@ -31,14 +31,14 @@ function KnowHow() {
                             <div className="grid grid-cols-2 gap-15 mb-38">
                                 <button className={`bg-white transition-opacity p-10 md:p-22 rounded-medium max-w-55 ${abrir ? 'ring-2 ring-black shadow-xl ' : 'ring-2 ring-grey-200 shadow-xl'}`} id="speaker" onClick={abrirSpeaker} >
                                     <div className={`${abrir ? 'opacity-100' : ''}`}>
-                                        <img src="/img/icon-perfume.png" className={`block m-auto ${abrir ? 'opacity-100' : 'opacity-80'}`} />
+                                        <img src="/img/webp/icon-perfume.webp" className={`block m-auto ${abrir ? 'opacity-100' : 'opacity-80'}`} />
                                         <h5 className={`text-15 md:text-18 pt-13 ${abrir ? 'opacity-100' : 'opacity-80'}`}>SMART SPEAKER</h5>
                                         <p className={`text-10 pt-6 ${abrir ? 'opacity-100' : 'opacity-80'}`}>ALEXA ECHO DOT, ALEXA SHOW OU GOOGLE NEST MINI</p>
                                     </div>
                                 </button>
                                 <button className={`bg-white transition-opacity p-10 md:p-22 rounded-medium max-w-55 ${!abrir ? 'ring-2 ring-black shadow-xl ' : 'ring-2 ring-grey-200 shadow-xl'}`} id="smart" onClick={abrirSmart}>
                                     <div className={`${!abrir ? 'opacity-100' : ''}`} >
-                                        <img src="/img/icon-phone.png" className={`block m-auto ${!abrir ? 'opacity-100' : 'opacity-80'}`} />
+                                        <img src="/img/webp/icon-phone.webp" className={`block m-auto ${!abrir ? 'opacity-100' : 'opacity-80'}`} />
                                         <h5 className={`text-15 md:text-18 pt-13 ${!abrir ? 'opacity-100' : 'opacity-80'}`}>SMARTPHONE</h5>
                                         <p className={`text-10 pt-6 ${!abrir ? 'opacity-100' : 'opacity-80'}`}>APLICATIVOS ALEXA OU <br /> GOOGLE ASSISTENTE</p>
                                     </div>

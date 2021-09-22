@@ -9,19 +9,19 @@
 }
 
 .bg-header {
-    background-image: url('/img/Phantom-Header.jpg');
+    background-image: url('/img/webp/Phantom-Header.webp');
 }
 
 .bg-introduction {
-    background-image: url('/img/phantom-section-voice.jpg');
+    background-image: url('/img/webp/phantom-section-voice.webp');
 }
 
 .bg-know-how {
-    background-image: url('/img/know-how-bg.jpg');
+    background-image: url('/img/webp/know-how-bg.webp');
 }
 
 .bg-finalizado {
-    background-image: url('/img/phantom-end-section.jpg');
+    background-image: url('/img/webp/phantom-end-section.webp');
 }
 
 

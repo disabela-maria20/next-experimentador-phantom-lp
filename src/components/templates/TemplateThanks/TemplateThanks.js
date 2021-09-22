@@ -10,7 +10,7 @@ function TemplateThanks() {
             <section className="bg-know-how bg-start bg-cover tm:py-38 md:py-136 h-full grid grid-cols-1">
                 <div className="tm:container mx-auto grid md:grid-cols-2 tm:grid-cols-1 px-15 items-center place-content-center">
                     <div className="md:order-1 tm:order-2">
-                        <img src="/img/robo-estilo.png" alt="Phantom by Paco Rabanne" />
+                        <img src="/img/webp/robo-estilo.webp" alt="Phantom by Paco Rabanne" />
                     </div>
                     <div className="md:order-2 tm:order-1">
                         <img src="/img/circle.svg" alt="Obrigado" className="self-center mx-auto pb-38"/>
