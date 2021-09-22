@@ -2,9 +2,9 @@ import Link from "next/link"
 
 function Footer() {
         return (
-        <footer className="bg-black py-55">
+        <footer className="bg-black py-55 px-15">
             <div className="container mx-auto">
-                <div className="grid grid-cols-3 h-full justify-items-center items-center place-content-center">
+                <div className="grid md:grid-cols-3 tm:grid-cols-1 gap-22 h-full justify-items-center items-center place-content-center">
                     <div>
                         <img src="/img/webp/logo-paco.webp" alt="Paco Rabanne" width="160px"/>
                     </div>
