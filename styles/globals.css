@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;600;700&family=Rampart+One&display=swap');
 @import './main/main.css';
 
 /*@layer components {
