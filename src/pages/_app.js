@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
 				<meta name="language" content="pt-BR" />
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel="shortcut icon" href="/favicon144.png" />
+        <link rel="preload" as="font" />
     </Head>
   <Component {...pageProps} />
   <CookieConsent
