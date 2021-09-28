@@ -52,7 +52,7 @@ export async function getServerSideProps() {
 		}
 	})
 	const quantity = response.data.rows[0].quantity
-	if (quantity == 0) {
+	if (quantity <= 500) {
 		//router.push('/finalizado')
 		return {
 			redirect: {
