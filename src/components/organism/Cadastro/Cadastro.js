@@ -54,18 +54,20 @@ function Cadastro({ token }) {
         fetch(`https://viacep.com.br/ws/${cep}/json/`)
             .then((res) => res.json())
             .then((data) => {
-                if (data && !data.logradouro) {
-                    setErrorMessage({
-                        title: 'Erro',
-                        message: 'CEP não encontrado.',
-                    })
-                    setOpen(true)
-                    return
+                // if (data && !data.logradouro) {
+                // setErrorMessage({
+                //     title: 'Erro',
+                //     message: 'CEP não encontrado.',
+                // })
+                // setOpen(true)
+                // return
+                // }
+                if (data) {
+                    setValue('endereco', data.logradouro)
+                    setValue('cidade', data.localidade)
+                    setValue('estado', data.uf)
+                    setValue('bairro', data.bairro)
                 }
-                setValue('endereco', data.logradouro)
-                setValue('cidade', data.localidade)
-                setValue('estado', data.uf)
-                setValue('bairro', data.bairro)
             })
     }
 
@@ -97,14 +99,14 @@ function Cadastro({ token }) {
 
                 const checkCep = await axios.get(`https://viacep.com.br/ws/${cep}/json/`)
 
-                if (checkCep.data && !checkCep.data.logradouro) {
-                    setErrorMessage({
-                        title: 'Erro',
-                        message: 'CEP não encontrado.',
-                    })
-                    setOpen(true)
-                    return
-                }
+                // if (checkCep.data && !checkCep.data.logradouro) {
+                // setErrorMessage({
+                //     title: 'Erro',
+                //     message: 'CEP não encontrado.',
+                // })
+                // setOpen(true)
+                // return
+                // }
 
                 /* Cria um pedido, usuário e subtrai um produto */
                 const post = await axios.post('https://api.experimentador.com.br/api/v1/orders', {

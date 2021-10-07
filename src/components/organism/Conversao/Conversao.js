@@ -74,14 +74,24 @@ const Conversao = () => {
                             },
                         }
                     )
+
                 router.push('/pacorabanne/finalizado-thanks')
-                console.log(resp)
             } else {
                 captchaRef.current.execute()
             }
 
         } catch (error) {
-            console.log(error)
+            if (error && error.response && error.response.data && error.response.data.message) {
+                const errorName = error.response.data.message.split(' ').pop()
+                if (errorName === '"users_email_unique"') {
+                    setErrorMessage({
+                        title: 'Erro',
+                        message: 'Este e-mail já está cadastrado.',
+                    })
+                    setOpen(!open)
+                }
+            }
+            console.log({ error })
         }
     }
 
