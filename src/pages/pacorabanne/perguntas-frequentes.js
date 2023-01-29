@@ -5,12 +5,12 @@ import { NextSeo } from 'next-seo'
 
 
 function PerguntasFrequentes() {
-    return (
-        <>
-        <NextSeo
-			title="Perguntas Frequentes | Phantom by paco rabanne | experimentador"
-			description="Tem alguma dúvida sobre o experimentador? Veja as perguntas mais frequentes respondidas."
-			openGraph={{
+	return (
+		<>
+			<NextSeo
+				title="Perguntas Frequentes | Phantom by paco rabanne | experimentador"
+				description="Tem alguma dúvida sobre o experimentador? Veja as perguntas mais frequentes respondidas."
+				openGraph={{
 					url: 'https://experimentador.com.br/pacorabanne/perguntas-frequentes',
 					title: 'Perguntas Frequentes | Phantom by paco rabanne | experimentador',
 					description: 'Tem alguma dúvida sobre o experimentador? Veja as perguntas mais frequentes respondidas.',
@@ -21,20 +21,20 @@ function PerguntasFrequentes() {
 						},
 					],
 					site_name: 'Perguntas Frequentes | Phantom by paco rabanne | experimentador'
-			}}
-			twitter={{
-				handle: '@handle',
-				site: '@site',
-				cardType: 'summary_large_image'
+				}}
+				twitter={{
+					handle: '@handle',
+					site: '@site',
+					cardType: 'summary_large_image'
 
-			}}
-            	
+				}}
+
 			/>
-            <Navbar />
-            <TemplatePerguntas />
-            <Footer />
-        </>
-    )
+			<Navbar />
+			<TemplatePerguntas />
+			<Footer />
+		</>
+	)
 }
 
 export default PerguntasFrequentes
