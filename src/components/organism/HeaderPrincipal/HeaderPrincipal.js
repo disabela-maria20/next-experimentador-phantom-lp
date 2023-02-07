@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 const HeaderPrincipal = () => {
     return (
         <section className="bg-header bg-center  bg-cover py-66 h-header grid grid-cols-1 place-content-center">

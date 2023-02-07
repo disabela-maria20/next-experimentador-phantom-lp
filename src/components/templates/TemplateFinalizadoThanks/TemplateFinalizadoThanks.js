@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link"
 import Title from "../../atom/Title/Title"
 import Navbar from "../../molecule/Navbar/Navbar"

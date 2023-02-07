@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import Paragraph from "../../atom/Paragraph/Paragraph";
 import Title from "../../atom/Title/Title";
 import React, { useState } from 'react'

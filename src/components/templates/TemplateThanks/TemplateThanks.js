@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Navbar from "../../molecule/Navbar/Navbar";
 import Title from "../../atom/Title/Title";
 import Footer from "../../organism/Footer/Footer";
@@ -13,14 +14,14 @@ function TemplateThanks() {
                         <img src="/img/webp/robo-estilo.webp" alt="Phantom by Paco Rabanne" />
                     </div>
                     <div className="md:order-2 tm:order-1">
-                        <img src="/img/circle.svg" alt="Obrigado" className="self-center mx-auto pb-38"/>
-                        <Title titulo="Obrigado! Sua amostra chegará em breve" extraclass="text-black text-center leading-title"/>
+                        <img src="/img/circle.svg" alt="Obrigado" className="self-center mx-auto pb-38" />
+                        <Title titulo="Obrigado! Sua amostra chegará em breve" extraclass="text-black text-center leading-title" />
                         <Paragraph paragrafo="Fique atento no seu telefone. Você receberá a atualização do status do pedido via SMS." extraclass="text-black py-38 text-center" />
                     </div>
                 </div>
             </section>
             <Footer />
-            
+
         </>
     )
 }
